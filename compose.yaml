@@ -1,0 +1,40 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    env_file:
+      - ./frontend/.env
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+    develop:
+      watch:
+        - action: rebuild
+          path: ./frontend/package.json
+        - action: rebuild
+          path: ./frontend/package-lock.json
+        - action: rebuild
+          path: ./frontend/Dockerfile
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    env_file:
+      - ./backend/.env
+    volumes:
+      - ./backend:/code
+    develop:
+      watch:
+        - action: rebuild
+          path: ./backend/requirements.txt # New Python deps
+        - action: rebuild
+          path: ./backend/Dockerfile # Dockerfile changes
+        - action: restart
+          path: ./backend/.env # Env changes need restart
+    depends_on:
+      - frontend

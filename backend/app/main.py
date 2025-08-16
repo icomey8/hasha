@@ -62,21 +62,21 @@ def list_users(authorization: str = Header()):
         )
 
 @app.post("/create-user")
-async def create_new_user(request: Request):
+async def create_new_user(request: Request, authorization: str = Header()):
     print("=== CREATE USER ENDPOINT CALLED ===")
     print(f"Request method: {request.method}")
     print(f"Request URL: {request.url}")
     print(f"Request headers: {dict(request.headers)}")
     
-    auth_header = request.headers.get("Authorization")
     service_role = os.getenv("SERVICE_ROLE")
     backend_secret = os.getenv("BACKEND_SECRET")
+    token = authorization.replace("Bearer ", "")
     
-    print(f"Auth header: {auth_header}")
-    print(f"Expected secret: Bearer {backend_secret}")
-    print(f"Service role key: {service_role[:10]}..." if service_role else "MISSING")
+    # print(token)
+    # print(f"Expected secret: Bearer {backend_secret}")
+    # print(f"Service role key: {service_role[:10]}..." if service_role else "MISSING")
     
-    if auth_header != f"Bearer {backend_secret}":
+    if not token:
         print("❌ Authorization failed")
         raise HTTPException(status_code=401, detail="Unauthorized")
     

@@ -3,7 +3,7 @@ from fastapi import FastAPI, HTTPException, status, Header, Request
 from fastapi.middleware.cors import CORSMiddleware
 from supabase import create_client, Client, ClientOptions
 from dotenv import load_dotenv
-from models.User import User, Bricks
+from .models.User import User, Bricks
 import os
 
 load_dotenv()

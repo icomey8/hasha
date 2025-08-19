@@ -63,7 +63,8 @@ function RouteComponent() {
 			console.log("=== FRONTEND FETCH DEBUG ===");
 			console.log("Token starts with:", idToken?.substring(0, 50));
 
-			const response = await fetch("https://hasha.onrender.com/users", {
+			// const response = await fetch("https://hasha.onrender.com/users", {
+			const response = await fetch("http://localhost:80/users", {
 				method: "GET",
 				headers: {
 					"Content-Type": "application/json",

@@ -1,49 +1,40 @@
-from fastapi import APIRouter, Header, HTTPException, status, Request
+from fastapi import APIRouter, Header, HTTPException, status, Request, Depends
 from typing import List
 from supabase import create_client, ClientOptions
 from ..models.User import User
-import os
+from ..dependencies import auth_dependency
+from ..auth.auth import extract_token
 from dotenv import load_dotenv
+from loguru import logger
+import os, sys
 
 router = APIRouter(
     prefix="/users"
 )
+
+log_path = os.path.join(os.path.dirname(__file__), "users.log")
+logger.remove()  
+logger.add(log_path, rotation="1 day", retention="1 day", colorize=False, format="{time} | {level} | {message}")
 
 load_dotenv()
 url = os.getenv("PROJ_URL")
 anon_key = os.getenv("ANON_KEY")
 
 @router.get("/", response_model=List[User])
-def list_users(authorization: str = Header()):
+def list_users(user = Depends(auth_dependency), token = Depends(extract_token)):
     try:
-        print("=== GET /users ENDPOINT CALLED ===")
-        print(f"Authorization header: {authorization}")
-        
-        if not authorization or not authorization.startswith("Bearer "):
-            print("❌ Authorization header missing or invalid")
-            raise HTTPException(
-                status_code=status.HTTP_401_UNAUTHORIZED,
-                detail="Authorization header missing or invalid"
-            )
-            
-        token = authorization.replace("Bearer ", "")
-        print(f"Extracted token: {token[:50]}...")
-        print(f"Supabase URL: {url}")
-        print(f"Anon key: {anon_key[:50]}...")
-        
+        logger.info("=== GET /users ENDPOINT CALLED ===")
+
         client = create_client(supabase_key=anon_key, supabase_url=url, options=ClientOptions(headers={"Authorization": f"Bearer {token}"}))
-        print("✅ Supabase client created")
+        logger.info("✅ Supabase client created")
         
         response = client.from_("users").select("*").execute()
-        print(f"Supabase response: {response}")
-        print(f"Response data: {response.data}")
-        print(f"Response count: {response.count}")
+        logger.info(f"Response data: {response.data}")
         
         return response.data
     
     except Exception as e:
-        print(f"❌ An unexpected error occurred: {str(e)}")
-        print(f"Error type: {type(e)}")
+        logger.error(f"❌ {type(e)}: {str(e)}")
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"An unexpected error occurred: {str(e)}"
@@ -51,40 +42,34 @@ def list_users(authorization: str = Header()):
         
 @router.post("/create-user")
 async def create_new_user(request: Request, authorization: str = Header()):
-    print("=== CREATE USER ENDPOINT CALLED ===")
-    print(f"Request method: {request.method}")
-    print(f"Request URL: {request.url}")
-    print(f"Request headers: {dict(request.headers)}")
+    logger.info("=== CREATE USER ENDPOINT CALLED ===")
+    logger.info(f"Request headers: {dict(request.headers)}")
     
     service_role = os.getenv("SERVICE_ROLE")
     backend_secret = os.getenv("BACKEND_SECRET")
     token = authorization.replace("Bearer ", "")
     
-    # print(token)
-    # print(f"Expected secret: Bearer {backend_secret}")
-    # print(f"Service role key: {service_role[:10]}..." if service_role else "MISSING")
-    
-    if not token:
-        print("❌ Authorization failed")
+    if not token or token != backend_secret: 
+        logger.error("❌ Authorization failed")
         raise HTTPException(status_code=401, detail="Unauthorized")
     
-    print("✅ Authorization successful")
+    logger.info("✅ Authorization successful")
     
     body = await request.json()
-    print(f"Received user data: {body}")
+    logger.info(f"Received user data: {body}")
     
     client = create_client(supabase_url=url, supabase_key=service_role)
     
     try:
-        print("Attempting to insert user into Supabase...")
+        logger.info("Attempting to insert user into Supabase...")
         result = client.table("users").insert({
             "cognito_id": body["id"],
             "username": body.get("email", "unknown").split('@')[0]  
         }).execute()
-        print(f"✅ User created successfully: {result.data}")
+        logger.info(f"✅ User created successfully: {result.data}")
         return {"status": "success", "user": result.data}
         
     except Exception as e:
-        print(f"❌ Error creating user: {str(e)}")
-        print(f"Error type: {type(e)}")
+        logger.error(f"❌ Error creating user: {str(e)}")
+        logger.error(f"Error type: {type(e)}")
         raise HTTPException(status_code=500, detail=f"Failed to create user: {str(e)}")

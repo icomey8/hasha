@@ -1,0 +1,48 @@
+2025-08-19T15:42:49.518570+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-19T15:42:49.839022+0000 | INFO | Successfully fetched JWKS with 2 keys
+2025-08-19T15:42:49.839533+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-19T15:42:49.849892+0000 | INFO | Successfully validated token for user: 048864a8-4031-701c-92d8-1e28de3b6ccc
+2025-08-19T15:42:49.850092+0000 | INFO | Authentication successful for user: 048864a8-4031-701c-92d8-1e28de3b6ccc
+2025-08-19T15:42:49.850406+0000 | INFO | === GET /users ENDPOINT CALLED ===
+2025-08-19T15:42:49.868254+0000 | INFO | ✅ Supabase client created
+2025-08-19T15:42:51.395686+0000 | INFO | Response data: [{'id': 2, 'created_at': '2025-08-14T18:52:14.971257+00:00', 'username': 'steph curry', 'cognito_id': 'us-east-1:1234567- 123123'}]
+2025-08-19T15:43:18.356385+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-19T15:43:18.669306+0000 | INFO | Successfully fetched JWKS with 2 keys
+2025-08-19T15:43:18.670153+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-19T15:43:18.672407+0000 | INFO | Successfully validated token for user: 048864a8-4031-701c-92d8-1e28de3b6ccc
+2025-08-19T15:43:18.672876+0000 | INFO | Authentication successful for user: 048864a8-4031-701c-92d8-1e28de3b6ccc
+2025-08-19T15:43:18.673782+0000 | INFO | === GET /users ENDPOINT CALLED ===
+2025-08-19T15:43:18.684356+0000 | INFO | ✅ Supabase client created
+2025-08-19T15:43:19.251604+0000 | INFO | Response data: [{'id': 2, 'created_at': '2025-08-14T18:52:14.971257+00:00', 'username': 'steph curry', 'cognito_id': 'us-east-1:1234567- 123123'}]
+2025-08-19T15:45:46.383893+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-19T15:45:46.717419+0000 | INFO | Successfully fetched JWKS with 2 keys
+2025-08-19T15:45:46.718591+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-19T15:45:46.724744+0000 | INFO | Successfully validated token for user: 048864a8-4031-701c-92d8-1e28de3b6ccc
+2025-08-19T15:45:46.725210+0000 | INFO | Authentication successful for user: 048864a8-4031-701c-92d8-1e28de3b6ccc
+2025-08-19T15:45:46.726120+0000 | INFO | === GET /users ENDPOINT CALLED ===
+2025-08-19T15:45:46.768654+0000 | INFO | ✅ Supabase client created
+2025-08-19T15:45:47.368188+0000 | INFO | Response data: [{'id': 2, 'created_at': '2025-08-14T18:52:14.971257+00:00', 'username': 'steph curry', 'cognito_id': 'us-east-1:1234567- 123123'}]
+2025-08-19T16:07:25.808690+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-19T16:07:26.174148+0000 | INFO | Successfully fetched JWKS with 2 keys
+2025-08-19T16:07:26.174839+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-19T16:07:26.189054+0000 | INFO | Successfully validated token for user: 048864a8-4031-701c-92d8-1e28de3b6ccc
+2025-08-19T16:07:26.189463+0000 | INFO | Authentication successful for user: 048864a8-4031-701c-92d8-1e28de3b6ccc
+2025-08-19T16:07:26.189991+0000 | INFO | === GET /users ENDPOINT CALLED ===
+2025-08-19T16:07:26.204179+0000 | INFO | ✅ Supabase client created
+2025-08-19T16:07:26.999506+0000 | INFO | Response data: [{'id': 2, 'created_at': '2025-08-14T18:52:14.971257+00:00', 'username': 'steph curry', 'cognito_id': 'us-east-1:1234567- 123123'}]
+2025-08-19T16:10:10.943966+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-19T16:10:11.267431+0000 | INFO | Successfully fetched JWKS with 2 keys
+2025-08-19T16:10:11.268311+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-19T16:10:11.274848+0000 | INFO | Successfully validated token for user: 048864a8-4031-701c-92d8-1e28de3b6ccc
+2025-08-19T16:10:11.275144+0000 | INFO | Authentication successful for user: 048864a8-4031-701c-92d8-1e28de3b6ccc
+2025-08-19T16:10:11.275586+0000 | INFO | === GET /users ENDPOINT CALLED ===
+2025-08-19T16:10:11.289942+0000 | INFO | ✅ Supabase client created
+2025-08-19T16:10:11.924635+0000 | INFO | Response data: [{'id': 2, 'created_at': '2025-08-14T18:52:14.971257+00:00', 'username': 'steph curry', 'cognito_id': 'us-east-1:1234567- 123123'}]
+2025-08-19T16:18:51.973777+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-19T16:18:52.413805+0000 | INFO | Successfully fetched JWKS with 2 keys
+2025-08-19T16:18:52.414619+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-19T16:18:52.440140+0000 | INFO | Successfully validated token for user: 048864a8-4031-701c-92d8-1e28de3b6ccc
+2025-08-19T16:18:52.440661+0000 | INFO | Authentication successful for user: 048864a8-4031-701c-92d8-1e28de3b6ccc
+2025-08-19T16:18:52.441018+0000 | INFO | === GET /users ENDPOINT CALLED ===
+2025-08-19T16:18:52.463446+0000 | INFO | ✅ Supabase client created
+2025-08-19T16:18:53.321921+0000 | INFO | Response data: [{'id': 2, 'created_at': '2025-08-14T18:52:14.971257+00:00', 'username': 'steph curry', 'cognito_id': 'us-east-1:1234567- 123123'}]

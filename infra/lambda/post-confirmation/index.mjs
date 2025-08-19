@@ -1,5 +1,3 @@
-// Using built-in fetch (available in Node.js 18+)
-
 async function handler(event, context) {
 	console.log("=== POST-CONFIRMATION LAMBDA TRIGGERED ===");
 	console.log("Event:", JSON.stringify(event, null, 2));

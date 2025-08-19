@@ -30,7 +30,7 @@ async function handler(event, context) {
 		);
 		console.log("Backend URL:", process.env.BACKEND_URL);
 
-		const response = await fetch(`${process.env.BACKEND_URL}/create-user`, {
+		const response = await fetch(`${process.env.BACKEND_URL}`, {
 			method: "POST",
 			headers: {
 				Authorization: `Bearer ${process.env.BACKEND_SECRET}`,

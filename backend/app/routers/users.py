@@ -41,13 +41,11 @@ def list_users(user = Depends(auth_dependency), token = Depends(extract_token)):
         )
         
 @router.post("/create-user")
-async def create_new_user(request: Request, authorization: str = Header()):
+async def create_new_user(request: Request, token = Depends(extract_token)):
     logger.info("=== CREATE USER ENDPOINT CALLED ===")
-    logger.info(f"Request headers: {dict(request.headers)}")
     
     service_role = os.getenv("SERVICE_ROLE")
     backend_secret = os.getenv("BACKEND_SECRET")
-    token = authorization.replace("Bearer ", "")
     
     if not token or token != backend_secret: 
         logger.error("❌ Authorization failed")
@@ -56,8 +54,6 @@ async def create_new_user(request: Request, authorization: str = Header()):
     logger.info("✅ Authorization successful")
     
     body = await request.json()
-    logger.info(f"Received user data: {body}")
-    
     client = create_client(supabase_url=url, supabase_key=service_role)
     
     try:

@@ -75,7 +75,7 @@ export const checkCurrentUser = async () => {
 export async function getCurrentToken() {
 	try {
 		const session = await fetchAuthSession();
-		console.log("Amplify Auth Session Tokens:", session.tokens);
+		// console.log("Amplify Auth Session Tokens:", session.tokens);
 		const idToken = session.tokens?.idToken?.toString() || null;
 		return idToken;
 	} catch (error) {

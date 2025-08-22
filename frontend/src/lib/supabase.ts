@@ -10,11 +10,6 @@ export const supabase = createClient(
 		},
 		accessToken: async () => {
 			const tokens = await fetchAuthSession();
-			// Use idToken for Cognito integration with Supabase
-			// console.log(
-			// 	"Supabase access token:",
-			// 	tokens?.tokens?.idToken?.toString()
-			// );
 			return tokens?.tokens?.idToken?.toString() || null;
 		},
 	}

@@ -7,13 +7,8 @@ async function handler(event, context) {
 		const userId = event.userName;
 		const email = event.request.userAttributes.email;
 
-		console.log(`Processing user: ${userId} with email: ${email}`);
+		console.log(`Processing user`);
 		console.log("Environment variables check:");
-		console.log("- BACKEND_URL:", process.env.BACKEND_URL ? "SET" : "MISSING");
-		console.log(
-			"- BACKEND_SECRET:",
-			process.env.BACKEND_SECRET ? "SET" : "MISSING"
-		);
 
 		if (!process.env.BACKEND_URL || !process.env.BACKEND_SECRET) {
 			throw new Error("Missing required environment variables");
@@ -24,11 +19,7 @@ async function handler(event, context) {
 			email: email,
 		};
 
-		console.log(
-			"Sending request to backend:",
-			JSON.stringify(requestBody, null, 2)
-		);
-		console.log("Backend URL:", process.env.BACKEND_URL);
+		console.log("Sending request to backend...");
 
 		const response = await fetch(`${process.env.BACKEND_URL}`, {
 			method: "POST",
@@ -40,10 +31,6 @@ async function handler(event, context) {
 		});
 
 		console.log(`Backend response status: ${response.status}`);
-		console.log(
-			`Backend response headers:`,
-			Object.fromEntries(response.headers.entries())
-		);
 
 		if (!response.ok) {
 			const errorText = await response.text();
@@ -56,7 +43,7 @@ async function handler(event, context) {
 			);
 		} else {
 			const result = await response.json();
-			console.log("✅ User created successfully:", result);
+			console.log("✅ User created successfully:");
 		}
 
 		return event;

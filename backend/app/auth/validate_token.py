@@ -2,6 +2,15 @@ import jwt
 from typing import Dict, Any
 import base64
 from loguru import logger
+import copy
+import os
+
+# Create an independent logger for token validation
+token_logger = copy.deepcopy(logger)
+token_log_path = os.path.join(os.path.dirname(__file__), "token_validation.log")
+
+# Add handler to the independent logger
+token_logger.add(token_log_path, rotation="1 day", retention="1 day", colorize=False, format="{time} | {level} | {message}")
 
 class CognitoTokenValidationError(Exception):
     pass
@@ -14,7 +23,7 @@ def validate_jwt(token, jwks_fetcher, audience, region, user_pool_id):
         if not kid:
             raise CognitoTokenValidationError("Token missing 'kid' in header")
         
-        logger.debug(f"Token kid: {kid}")
+        token_logger.debug(f"Token kid: {kid}")
         
         jwk = jwks_fetcher.get_key_by_kid(kid)
         if not jwk:
@@ -44,7 +53,7 @@ def validate_jwt(token, jwks_fetcher, audience, region, user_pool_id):
                 f"Invalid token_use: expected 'id', got '{token_use}'"
             )
         
-        logger.info(f"Successfully validated token for user: {decoded_token.get('sub')}")
+        token_logger.info(f"Successfully validated token for user: {decoded_token.get('sub')}")
         return decoded_token
         
     except jwt.ExpiredSignatureError:
@@ -58,7 +67,7 @@ def validate_jwt(token, jwks_fetcher, audience, region, user_pool_id):
     except jwt.InvalidTokenError as e:
         raise CognitoTokenValidationError(f"Invalid token: {str(e)}")
     except Exception as e:
-        logger.error(f"Unexpected error validating token: {e}")
+        token_logger.error(f"Unexpected error validating token: {e}")
         raise CognitoTokenValidationError(f"Token validation failed: {str(e)}")
 
 
@@ -99,7 +108,7 @@ def _jwk_to_public_key(jwk: Dict[str, Any]):
             raise CognitoTokenValidationError(f"Unsupported key type: {kty}")
             
     except Exception as e:
-        logger.error(f"Failed to convert JWK to public key: {e}")
+        token_logger.error(f"Failed to convert JWK to public key: {e}")
         raise CognitoTokenValidationError(f"JWK conversion failed: {str(e)}")
 
 

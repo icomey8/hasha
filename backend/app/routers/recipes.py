@@ -7,14 +7,17 @@ from ..auth.auth import extract_token
 from dotenv import load_dotenv
 from loguru import logger
 import os, sys
+import copy
 
 router = APIRouter(
     prefix="/recipes"
 )
 
+# Create an independent logger for recipes using deepcopy
+recipes_logger = copy.deepcopy(logger)
 log_path = os.path.join(os.path.dirname(__file__), "recipes.log")
-logger.remove()  
-logger.add(log_path, rotation="1 day", retention="1 day", colorize=False, format="{time} | {level} | {message}")
+
+recipes_logger.add(log_path, rotation="1 day", retention="1 day", colorize=False, format="{time} | {level} | {message}")
 
 load_dotenv()
 url = os.getenv("PROJ_URL")
@@ -22,7 +25,7 @@ anon_key = os.getenv("ANON_KEY")
 
 @router.post("/create-recipe")
 async def create_recipe(request: Request, user = Depends(auth_dependency), token = Depends(extract_token)):
-    logger.info("=== POST /create-recipe endpoint called ===")
+    recipes_logger.info("=== POST /create-recipe endpoint called ===")
     
     body = await request.json()
     # client = create_client(supabase_key=anon_key, supabase_url=url, options=ClientOptions(headers={"Authorization": f"Bearer {token}"}))
@@ -43,10 +46,10 @@ async def create_recipe(request: Request, user = Depends(auth_dependency), token
         #     ).execute()
         
         # logger.info(f"✅ User created successfully: {result.data}")
-        logger.info(f"✅ Data received successfully: {body}")
+        recipes_logger.info(f"✅ Data received successfully: {body}")
         return {"status": "success", "recipe": body}
         
     except Exception as e:
-        logger.error(f"❌ Error saving the recipe: {str(e)}")
-        logger.error(f"Error type: {type(e)}")
+        recipes_logger.error(f"❌ Error saving the recipe: {str(e)}")
+        recipes_logger.error(f"Error type: {type(e)}")
         raise HTTPException(status_code=500, detail=f"Failed to create recipe in database: {str(e)}")

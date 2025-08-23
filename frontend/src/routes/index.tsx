@@ -102,6 +102,13 @@ function RouteComponent() {
 				body: JSON.stringify(newRecipe),
 			});
 		},
+		onSuccess: (data) => {
+			console.log("✅ Recipe created successfully:", data);
+			resetDialog();
+		},
+		onError: (error) => {
+			console.error("❌ Failed to create recipe:", error);
+		},
 	});
 
 	const handleRecipeCreate = (newRecipeData: RecipeType) => {
@@ -126,9 +133,8 @@ function RouteComponent() {
 		}
 
 		console.log("the recipe is being sent to the backend");
-		mutation.mutate(newRecipeData);
+		mutation.mutate(newRecipe);
 
-		resetDialog();
 	};
 
 	const resetDialog = () => {
@@ -137,7 +143,7 @@ function RouteComponent() {
 
 	const handleSignOut = async () => {
 		await signOutUser();
-		router.invalidate();
+		router.invalidate(); 
 	};
 
 	return (

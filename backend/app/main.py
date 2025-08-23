@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from supabase import create_client, Client
 from dotenv import load_dotenv
 # from .models.User import User, Recipe
-from .routers import users
+from .routers import users, recipes
 import os
 
 load_dotenv()
@@ -15,6 +15,7 @@ supabase: Client = create_client(supabase_key=anon_key, supabase_url=url)
 
 app = FastAPI()
 app.include_router(users.router)
+app.include_router(recipes.router)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  

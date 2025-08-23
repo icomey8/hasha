@@ -2,22 +2,98 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { z } from "zod/v4";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm, useFieldArray, type SubmitHandler } from "react-hook-form";
 import { ArrowLeft, ArrowRight, ChefHat, Plus, Minus } from "lucide-react";
+import { type RecipeType } from "@/types/recipe";
 
 type RecipeFormProps = {
-	onSubmit: (data: any) => void;
+	onSubmit: (data: RecipeType) => void;
 	onClose?: () => void;
 };
 
+const FormInputSchema = z.object({
+	recipe_name: z
+		.string()
+		.min(2, "Title must be at least 2 characters")
+		.max(100, "Title must be less than 100 characters"),
+	ingredients: z
+		.array(
+			z.object({
+				name: z
+					.string()
+					.min(2, "Ingredient name must be at least 2 characters")
+					.max(100, "Ingredient name must be less than 100 characters"),
+				amount: z
+					.string()
+					.min(1, "Amount is required")
+					.max(50, "Amount must be less than 50 characters"),
+			})
+		)
+		.min(1, "At least one ingredient is required"),
+	preparation: z
+		.array(
+			z.object({
+				text: z
+					.string()
+					.min(5, "Step must be at least 5 characters")
+					.max(500, "Step must be less than 500 characters"),
+			})
+		)
+		.min(1, "At least one step is required"),
+	totalTime: z
+		.string()
+		.min(1, "Total time is required")
+		.max(50, "Total time must be less than 50 characters"),
+	type: z
+		.string()
+		.min(1, "Recipe type is required")
+		.max(50, "Recipe type must be less than 50 characters"),
+	cuisine: z
+		.string()
+		.min(1, "Cuisine is required")
+		.max(50, "Cuisine must be less than 50 characters"),
+});
+
+type FormInputType = z.infer<typeof FormInputSchema>;
+
 const RecipeForm = ({ onSubmit, onClose }: RecipeFormProps) => {
 	const [currentStep, setCurrentStep] = useState(1);
-	const [formData, setFormData] = useState({
-		title: "",
-		ingredients: [{ name: "", amount: "" }],
-		steps: [""],
-		totalTime: "",
-		type: "",
-		cuisine: "",
+
+	const {
+		register,
+		handleSubmit,
+		control,
+		formState: { errors },
+	} = useForm<FormInputType>({
+		resolver: zodResolver(FormInputSchema),
+		defaultValues: {
+			recipe_name: "",
+			ingredients: [{ name: "", amount: "" }],
+			preparation: [{ text: "" }],
+			totalTime: "",
+			type: "",
+			cuisine: "",
+		},
+	});
+
+	const {
+		fields: ingredientFields,
+		append: appendIngredient,
+		remove: removeIngredient,
+	} = useFieldArray({
+		control,
+		name: "ingredients",
+	});
+
+	const {
+		fields: stepFields,
+		append: appendStep,
+		remove: removeStep,
+	} = useFieldArray({
+		control,
+		name: "preparation",
 	});
 
 	const handleNext = () => {
@@ -32,70 +108,35 @@ const RecipeForm = ({ onSubmit, onClose }: RecipeFormProps) => {
 		}
 	};
 
-	const handleSubmit = () => {
-		onSubmit(formData);
+	const onFormSubmit: SubmitHandler<FormInputType> = (data) => {
+		onSubmit(data);
 		onClose?.();
 	};
 
-	const updateFormData = (field: string, value: any) => {
-		setFormData((prev) => ({ ...prev, [field]: value }));
-	};
-
 	const addIngredient = () => {
-		setFormData((prev) => ({
-			...prev,
-			ingredients: [...prev.ingredients, { name: "", amount: "" }],
-		}));
-	};
-
-	const removeIngredient = (index: number) => {
-		setFormData((prev) => ({
-			...prev,
-			ingredients: prev.ingredients.filter((_, i) => i !== index),
-		}));
-	};
-
-	const updateIngredient = (index: number, field: string, value: string) => {
-		setFormData((prev) => ({
-			...prev,
-			ingredients: prev.ingredients.map((ing, i) =>
-				i === index ? { ...ing, [field]: value } : ing
-			),
-		}));
+		appendIngredient({ name: "", amount: "" });
 	};
 
 	const addStep = () => {
-		setFormData((prev) => ({
-			...prev,
-			steps: [...prev.steps, ""],
-		}));
-	};
-
-	const removeStep = (index: number) => {
-		setFormData((prev) => ({
-			...prev,
-			steps: prev.steps.filter((_, i) => i !== index),
-		}));
-	};
-
-	const updateStep = (index: number, value: string) => {
-		setFormData((prev) => ({
-			...prev,
-			steps: prev.steps.map((step, i) => (i === index ? value : step)),
-		}));
+		appendStep({ text: "" });
 	};
 
 	const renderStep1 = () => (
 		<div className="space-y-6">
 			<div>
-				<Label htmlFor="title">Recipe Title</Label>
+				<Label htmlFor="recipe_name">Recipe Title</Label>
 				<Input
-					id="title"
-					value={formData.title}
-					onChange={(e) => updateFormData("title", e.target.value)}
+					id="recipe_name"
+					{...register("recipe_name", { required: true })}
+					aria-invalid={errors.recipe_name ? "true" : "false"}
 					placeholder="Enter recipe title"
 					className="mt-1"
 				/>
+				{errors.recipe_name && (
+					<p className="text-sm text-red-500 mt-1">
+						{errors.recipe_name.message}
+					</p>
+				)}
 			</div>
 
 			<div>
@@ -113,27 +154,39 @@ const RecipeForm = ({ onSubmit, onClose }: RecipeFormProps) => {
 					</Button>
 				</div>
 				<div className="space-y-3">
-					{formData.ingredients.map((ingredient, index) => (
-						<div key={index} className="flex gap-2">
+					{ingredientFields.map((field, index) => (
+						<div key={field.id} className="flex gap-2">
 							<div className="flex-1">
 								<Input
-									value={ingredient.name}
-									onChange={(e) =>
-										updateIngredient(index, "name", e.target.value)
-									}
+									id={`ingredient-${index}-name`}
+									{...register(`ingredients.${index}.name`)}
 									placeholder="Ingredient name"
+									aria-invalid={
+										errors.ingredients?.[index]?.name ? "true" : "false"
+									}
 								/>
+								{errors.ingredients?.[index]?.name && (
+									<p className="text-sm text-red-500 mt-1">
+										{errors.ingredients[index]?.name?.message}
+									</p>
+								)}
 							</div>
 							<div className="w-32">
 								<Input
-									value={ingredient.amount}
-									onChange={(e) =>
-										updateIngredient(index, "amount", e.target.value)
-									}
+									id={`ingredient-${index}-amount`}
+									{...register(`ingredients.${index}.amount`)}
 									placeholder="Amount"
+									aria-invalid={
+										errors.ingredients?.[index]?.amount ? "true" : "false"
+									}
 								/>
+								{errors.ingredients?.[index]?.amount && (
+									<p className="text-sm text-red-500 mt-1">
+										{errors.ingredients[index]?.amount?.message}
+									</p>
+								)}
 							</div>
-							{formData.ingredients.length > 1 && (
+							{ingredientFields.length > 1 && (
 								<Button
 									type="button"
 									variant="outline"
@@ -147,6 +200,11 @@ const RecipeForm = ({ onSubmit, onClose }: RecipeFormProps) => {
 						</div>
 					))}
 				</div>
+				{errors.ingredients && !Array.isArray(errors.ingredients) && (
+					<p className="text-sm text-red-500 mt-1">
+						{errors.ingredients.message}
+					</p>
+				)}
 			</div>
 		</div>
 	);
@@ -168,21 +226,29 @@ const RecipeForm = ({ onSubmit, onClose }: RecipeFormProps) => {
 					</Button>
 				</div>
 				<div className="space-y-4">
-					{formData.steps.map((step, index) => (
-						<div key={index} className="flex gap-2">
+					{stepFields.map((field, index) => (
+						<div key={field.id} className="flex gap-2">
 							<div className="flex-shrink-0 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-semibold mt-1">
 								{index + 1}
 							</div>
 							<div className="flex-1">
 								<textarea
-									value={step}
-									onChange={(e) => updateStep(index, e.target.value)}
+									id={`step-${index}`}
+									{...register(`preparation.${index}.text`)}
 									placeholder={`Describe step ${index + 1}...`}
 									rows={3}
+									aria-invalid={
+										errors.preparation?.[index]?.text ? "true" : "false"
+									}
 									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
 								/>
+								{errors.preparation?.[index]?.text && (
+									<p className="text-sm text-red-500 mt-1">
+										{errors.preparation[index]?.text?.message}
+									</p>
+								)}
 							</div>
-							{formData.steps.length > 1 && (
+							{stepFields.length > 1 && (
 								<Button
 									type="button"
 									variant="outline"
@@ -196,6 +262,11 @@ const RecipeForm = ({ onSubmit, onClose }: RecipeFormProps) => {
 						</div>
 					))}
 				</div>
+				{errors.preparation && !Array.isArray(errors.preparation) && (
+					<p className="text-sm text-red-500 mt-1">
+						{errors.preparation.message}
+					</p>
+				)}
 			</div>
 		</div>
 	);
@@ -208,18 +279,23 @@ const RecipeForm = ({ onSubmit, onClose }: RecipeFormProps) => {
 					<Input
 						id="totalTime"
 						type="number"
-						value={formData.totalTime}
-						onChange={(e) => updateFormData("totalTime", e.target.value)}
+						{...register("totalTime")}
+						aria-invalid={errors.totalTime ? "true" : "false"}
 						placeholder="e.g. 30"
 						className="mt-1"
 					/>
+					{errors.totalTime && (
+						<p className="text-sm text-red-500 mt-1">
+							{errors.totalTime.message}
+						</p>
+					)}
 				</div>
 				<div>
 					<Label htmlFor="type">Recipe Type</Label>
 					<select
 						id="type"
-						value={formData.type}
-						onChange={(e) => updateFormData("type", e.target.value)}
+						{...register("type")}
+						aria-invalid={errors.type ? "true" : "false"}
 						className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mt-1"
 					>
 						<option value="">Select type</option>
@@ -229,6 +305,9 @@ const RecipeForm = ({ onSubmit, onClose }: RecipeFormProps) => {
 						<option value="side">Side Dish</option>
 						<option value="beverage">Beverage</option>
 					</select>
+					{errors.type && (
+						<p className="text-sm text-red-500 mt-1">{errors.type.message}</p>
+					)}
 				</div>
 			</div>
 
@@ -236,8 +315,8 @@ const RecipeForm = ({ onSubmit, onClose }: RecipeFormProps) => {
 				<Label htmlFor="cuisine">Cuisine</Label>
 				<select
 					id="cuisine"
-					value={formData.cuisine}
-					onChange={(e) => updateFormData("cuisine", e.target.value)}
+					{...register("cuisine")}
+					aria-invalid={errors.cuisine ? "true" : "false"}
 					className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mt-1"
 				>
 					<option value="">Select cuisine</option>
@@ -251,16 +330,17 @@ const RecipeForm = ({ onSubmit, onClose }: RecipeFormProps) => {
 					<option value="thai">Thai</option>
 					<option value="other">Other</option>
 				</select>
+				{errors.cuisine && (
+					<p className="text-sm text-red-500 mt-1">{errors.cuisine.message}</p>
+				)}
 			</div>
 		</div>
 	);
 
 	return (
-		<div className="space-y-6">
+		<form onSubmit={handleSubmit(onFormSubmit)} className="space-y-6">
 			<div className="text-center">
-				<h2 className="text-xl font-semibold mb-2">
-					Create Recipe - Step {currentStep} of 3
-				</h2>
+				<h2 className="text-xl font-semibold mb-2">Step {currentStep} of 3</h2>
 				<p className="text-sm text-gray-500">
 					{currentStep === 1 &&
 						"Start by adding the recipe title and ingredients"}
@@ -315,17 +395,13 @@ const RecipeForm = ({ onSubmit, onClose }: RecipeFormProps) => {
 						<ArrowRight className="w-4 h-4" />
 					</Button>
 				) : (
-					<Button
-						type="button"
-						onClick={handleSubmit}
-						className="gap-2 cursor-pointer"
-					>
+					<Button type="submit" className="gap-2 cursor-pointer">
 						<ChefHat className="w-4 h-4" />
 						Create Recipe
 					</Button>
 				)}
 			</div>
-		</div>
+		</form>
 	);
 };
 

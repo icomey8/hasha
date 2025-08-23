@@ -1,46 +1,31 @@
 import { useState } from "react";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import {
+	Dialog,
+	DialogContent,
+	DialogTrigger,
+	DialogTitle,
+} from "@/components/ui/dialog";
 import { Plus } from "lucide-react";
 import RecipeForm from "./RecipeForm";
+import { type RecipeType } from "@/types/recipe";
 
 type NewRecipeButtonProps = {
 	resetDialog: () => void;
-	onBrickCreate: (brickData: {
-		image: string;
-		title?: string;
-		description?: string;
-		ingredients?: { name: string; amount: string }[];
-		steps?: string[];
-		totalTime?: string;
-		type?: string;
-		cuisine?: string;
-	}) => void;
-	handleCategorySelect: (category: string) => void;
-	dialogStep: "category" | "form";
-	selectedCategory: string;
+	onRecipeCreate: (recipeData: RecipeType) => void;
 };
 
 const NewRecipeButton = ({
 	resetDialog,
-	onBrickCreate,
+	onRecipeCreate,
 }: NewRecipeButtonProps) => {
 	const [isOpen, setIsOpen] = useState(false);
 
-	const handleSubmit = (recipeData: {
-		title: string;
-		ingredients: { name: string; amount: string }[];
-		steps: string[];
-		totalTime: string;
-		type: string;
-		cuisine: string;
-	}) => {
-		onBrickCreate({
-			image:
-				"https://i1.sndcdn.com/artworks-f5c1cd47-aee7-4017-b0e7-7c7194c9f1b3-0-t500x500.webp", // Fallback image
-			title: recipeData.title || "Untitled Recipe",
+	const handleSubmit = (recipeData: RecipeType) => {
+		onRecipeCreate({
+			recipe_name: recipeData.recipe_name || "Untitled Recipe",
 			description: `${recipeData.type} • ${recipeData.cuisine} • ${recipeData.totalTime} mins`,
 			ingredients: recipeData.ingredients,
-			steps: recipeData.steps,
+			preparation: recipeData.preparation,
 			totalTime: recipeData.totalTime,
 			type: recipeData.type,
 			cuisine: recipeData.cuisine,
@@ -67,6 +52,7 @@ const NewRecipeButton = ({
 				<Plus size={16} /> New
 			</DialogTrigger>
 			<DialogContent className="!max-w-3xl">
+				<DialogTitle>Create a New Recipe</DialogTitle>
 				<RecipeForm onSubmit={handleSubmit} onClose={handleClose} />
 			</DialogContent>
 		</Dialog>

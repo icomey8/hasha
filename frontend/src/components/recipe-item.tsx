@@ -6,30 +6,18 @@ import {
 	DialogContent,
 	DialogDescription,
 	DialogTitle,
-	DialogFooter,
 } from "./ui/dialog";
-
-type RecipeProps = {
-	title?: string;
-	description?: string;
-	image: string;
-	ingredients?: { name: string; amount: string }[];
-	steps?: string[];
-	totalTime?: string;
-	type?: string;
-	cuisine?: string;
-};
+import { type RecipeType } from "@/types/recipe";
 
 const Recipe = ({
-	image,
-	title = "Untitled Recipe",
+	recipe_name = "Untitled Recipe",
 	description = "No description",
 	ingredients = [],
-	steps = [],
+	preparation = [],
 	totalTime = "",
 	type = "",
 	cuisine = "",
-}: RecipeProps) => {
+}: RecipeType) => {
 	return (
 		<Dialog>
 			<DialogTrigger asChild>
@@ -45,7 +33,7 @@ const Recipe = ({
 
 						<div className="flex-1 ml-4 flex flex-col justify-center min-w-0">
 							<h3 className="text-lg font-semibold text-gray-800 truncate">
-								{title}
+								{recipe_name}
 							</h3>
 							<p className="text-sm text-gray-500 mt-1 truncate">
 								{description}
@@ -56,7 +44,9 @@ const Recipe = ({
 			</DialogTrigger>
 			<DialogContent className="!max-w-4xl !w-full min-w-[500px]">
 				<DialogHeader>
-					<DialogTitle className="text-2xl font-semibold">{title}</DialogTitle>
+					<DialogTitle className="text-2xl font-semibold">
+						{recipe_name}
+					</DialogTitle>
 					<DialogDescription>
 						{type && cuisine && totalTime
 							? `${type} • ${cuisine} • ${totalTime} mins`
@@ -93,14 +83,14 @@ const Recipe = ({
 					<div>
 						<h4 className="text-lg font-semibold mb-3">Instructions</h4>
 						<div className="space-y-3 overflow-y-scroll max-h-[350px]">
-							{steps.length > 0 && steps[0] !== "" ? (
-								steps.map((step, index) => (
+							{preparation.length > 0 && preparation[0]?.text !== "" ? (
+								preparation.map((step, index) => (
 									<div key={index} className="flex items-start gap-3 pb-1">
 										<div className="flex-shrink-0 w-5 h-5 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-semibold">
 											{index + 1}
 										</div>
 										<p className="text-sm text-gray-700 leading-relaxed">
-											{step}
+											{step.text}
 										</p>
 									</div>
 								))

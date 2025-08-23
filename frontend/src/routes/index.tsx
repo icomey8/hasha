@@ -10,6 +10,8 @@ import { useState } from "react";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import NewRecipeButton from "@/components/home/NewRecipeButton";
 import Recipe from "@/components/recipe-item";
+import { type RecipeType } from "@/types/recipe";
+import { useMutation } from "@tanstack/react-query";
 // import { supabase } from "@/lib/supabase";
 
 export const Route = createFileRoute("/")({
@@ -21,14 +23,12 @@ function RouteComponent() {
 		from: "__root__",
 		select: (c) => c.auth,
 	});
-	// const { idToken } = useRouteContext({
-	// 	from: "__root__",
-	// 	select: (c) => c.auth,
-	// });
+	const { idToken } = useRouteContext({
+		from: "__root__",
+		select: (c) => c.auth,
+	});
 	const router = useRouter();
 
-	const [dialogStep, setDialogStep] = useState<"category" | "form">("category");
-	const [selectedCategory, setSelectedCategory] = useState<string>("");
 	const [recipes, setRecipes] = useState([
 		{
 			id: 2,
@@ -49,10 +49,16 @@ function RouteComponent() {
 				},
 			],
 			steps: [
-				"Bring a large pot of salted water to a boil.",
-				"Heat a large, high-sided skillet over medium-high. Add the oil and bacon and cook, stirring occasionally, until the bacon is crispy at the edges, about 5 minutes. Carefully drain all but 3 tablespoons of the fat, reserving any excess for later.",
-				"Lower the heat to medium. Stir in the red-pepper flakes, oregano and garlic and cook, stirring constantly, until fragrant, just a few seconds. Add the onion, season generously with salt and pepper and cook over medium-high, stirring, until the onion is translucent, about 5 minutes. Add more bacon fat if the pan dries out. Add the tomato paste and stir constantly until slightly darker in color, about 3 minutes. Turn off the heat and stir in the vodka.",
-				"Lower the heat to medium. Stir in the red-pepper flakes, oregano and garlic and cook, stirring constantly, until fragrant, just a few seconds. Add the onion, season generously with salt and pepper and cook over medium-high, stirring, until the onion is translucent, about 5 minutes. Add more bacon fat if the pan dries out. Add the tomato paste and stir constantly until slightly darker in color, about 3 minutes. Turn off the heat and stir in the vodka.",
+				{ text: "Bring a large pot of salted water to a boil." },
+				{
+					text: "Heat a large, high-sided skillet over medium-high. Add the oil and bacon and cook, stirring occasionally, until the bacon is crispy at the edges, about 5 minutes. Carefully drain all but 3 tablespoons of the fat, reserving any excess for later.",
+				},
+				{
+					text: "Lower the heat to medium. Stir in the red-pepper flakes, oregano and garlic and cook, stirring constantly, until fragrant, just a few seconds. Add the onion, season generously with salt and pepper and cook over medium-high, stirring, until the onion is translucent, about 5 minutes. Add more bacon fat if the pan dries out. Add the tomato paste and stir constantly until slightly darker in color, about 3 minutes. Turn off the heat and stir in the vodka.",
+				},
+				{
+					text: "Lower the heat to medium. Stir in the red-pepper flakes, oregano and garlic and cook, stirring constantly, until fragrant, just a few seconds. Add the onion, season generously with salt and pepper and cook over medium-high, stirring, until the onion is translucent, about 5 minutes. Add more bacon fat if the pan dries out. Add the tomato paste and stir constantly until slightly darker in color, about 3 minutes. Turn off the heat and stir in the vodka.",
+				},
 			],
 			totalTime: "30",
 			type: "Entree",
@@ -81,41 +87,52 @@ function RouteComponent() {
 		},
 	]);
 
-	const handleCategorySelect = (category: string) => {
-		setSelectedCategory(category);
-		setDialogStep("form");
-	};
+	const mutation = useMutation({
+		mutationFn: (newRecipe: RecipeType) => {
+			if (!idToken) {
+				throw new Error("User is not authenticated");
+			}
 
-	const handleRecipeCreate = (newRecipeData: {
-		image: string;
-		title?: string;
-		description?: string;
-		ingredients?: { name: string; amount: string }[];
-		steps?: string[];
-		totalTime?: string;
-		type?: string;
-		cuisine?: string;
-	}) => {
+			return fetch("https://hasha.onrender.com/recipes/create-recipe", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${idToken}`,
+				},
+				body: JSON.stringify(newRecipe),
+			});
+		},
+	});
+
+	const handleRecipeCreate = (newRecipeData: RecipeType) => {
 		const newRecipe = {
 			id: Date.now(),
-			image: newRecipeData.image,
-			title: newRecipeData.title || "Untitled Recipe",
+			image:
+				newRecipeData.image ||
+				"https://i.pinimg.com/1200x/bb/d8/7c/bbd87ca99b1849996d5d12f516f6cf94.jpg",
+			title: newRecipeData.recipe_name || "Untitled Recipe",
 			description: newRecipeData.description || "No description",
 			ingredients: newRecipeData.ingredients || [],
-			steps: newRecipeData.steps || [],
+			steps: newRecipeData.preparation || [],
 			totalTime: newRecipeData.totalTime || "",
 			type: newRecipeData.type || "",
 			cuisine: newRecipeData.cuisine || "",
 		};
 		setRecipes((prev) => [...prev, newRecipe]);
+		console.log("The recipe is: ", newRecipe);
+
+		if (!idToken) {
+			throw new Error("User is not authenticated");
+		}
+
+		console.log("the recipe is being sent to the backend");
+		mutation.mutate(newRecipeData);
+
 		resetDialog();
 	};
 
 	const resetDialog = () => {
-		setTimeout(() => {
-			setDialogStep("category");
-			setSelectedCategory("");
-		}, 150);
+		// Simple reset function
 	};
 
 	const handleSignOut = async () => {
@@ -130,11 +147,8 @@ function RouteComponent() {
 					<h1>Saved Recipes</h1>
 					<div className="flex gap-4">
 						<NewRecipeButton
-							onBrickCreate={handleRecipeCreate}
+							onRecipeCreate={handleRecipeCreate}
 							resetDialog={resetDialog}
-							handleCategorySelect={handleCategorySelect}
-							dialogStep={dialogStep}
-							selectedCategory={selectedCategory}
 						/>
 						<Dialog>
 							<DialogTrigger className="flex border items-center text-sm rounded-2xl p-1 px-2 cursor-pointer gap-1.5 hover:bg-accent">
@@ -173,10 +187,10 @@ function RouteComponent() {
 						<Recipe
 							key={recipe.id}
 							image={recipe.image}
-							title={recipe.title}
+							recipe_name={recipe.title}
 							description={recipe.description}
 							ingredients={recipe.ingredients}
-							steps={recipe.steps}
+							preparation={recipe.steps}
 							totalTime={recipe.totalTime}
 							type={recipe.type}
 							cuisine={recipe.cuisine}

@@ -3,8 +3,23 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@font-face {
+	font-family: "Erode Variable Italic";
+	font-style: normal;
+	src: url("public/fonts/Erode-VariableItalic.woff2") format("woff2");
+	font-display: swap;
+}
+@font-face {
+	font-family: "Erode Variable";
+	font-style: normal;
+	src: url("public/fonts/Erode-Variable.woff2") format("woff2");
+	font-display: swap;
+}
+
 :root {
-	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+	font-family:
+		"Erode Variable", "Erode Variable Italic", system-ui, Avenir, Helvetica,
+		Arial, sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
 
@@ -119,10 +134,10 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+	* {
+		@apply border-border outline-ring/50;
 	}
-  body {
-    @apply bg-background text-foreground;
+	body {
+		@apply bg-background text-foreground;
 	}
 }

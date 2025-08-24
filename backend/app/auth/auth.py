@@ -1,18 +1,10 @@
 from fastapi import HTTPException, status, Header, Depends
 from typing import Optional, Callable, Dict, Any
-from loguru import logger
+from ..logging_config import get_module_logger
 import os
 from .validate_token import validate_jwt, CognitoTokenValidationError
 
-# Create a bound logger for auth
-auth_logger = logger.bind(module="auth")
-auth_log_path = os.path.join(os.path.dirname(__file__), "auth.log")
-
-# Add handler with filter for auth module
-logger.add(auth_log_path, rotation="1 day", retention="1 day", colorize=False, 
-           format="{time} | {level} | {message}", 
-           filter=lambda record: record["extra"].get("module") == "auth")
-
+auth_logger = get_module_logger("auth")
 
 def extract_token(authorization: str = Header()) -> str:
     if not authorization or not authorization.startswith("Bearer "):

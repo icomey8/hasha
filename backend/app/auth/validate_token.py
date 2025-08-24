@@ -1,18 +1,11 @@
 import jwt
+from datetime import datetime, timezone
 from typing import Dict, Any
 import base64
-from loguru import logger
-import copy
+from ..logging_config import get_module_logger
 import os
 
-# Create a bound logger for token validation
-token_logger = logger.bind(module="token_validation")
-token_log_path = os.path.join(os.path.dirname(__file__), "token_validation.log")
-
-# Add handler with filter for token validation module
-logger.add(token_log_path, rotation="1 day", retention="1 day", colorize=False, 
-           format="{time} | {level} | {message}", 
-           filter=lambda record: record["extra"].get("module") == "token_validation")
+token_logger = get_module_logger("token_validation")
 
 class CognitoTokenValidationError(Exception):
     pass
@@ -115,15 +108,6 @@ def _jwk_to_public_key(jwk: Dict[str, Any]):
 
 
 def _base64url_decode(data: str) -> bytes:
-    """
-    Decode base64url-encoded data (used in JWTs).
-    
-    Args:
-        data: Base64url-encoded string
-        
-    Returns:
-        Decoded bytes
-    """
     padding = 4 - (len(data) % 4)
     if padding != 4:
         data += '=' * padding

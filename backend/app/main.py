@@ -5,9 +5,13 @@ from supabase import create_client, Client
 from dotenv import load_dotenv
 # from .models.User import User, Recipe
 from .routers import users, recipes
+from .logging_config import setup_logging  # Import logging config
 import os
 
 load_dotenv()
+
+# Initialize logging configuration
+setup_logging()
 
 url = os.getenv("PROJ_URL")
 anon_key = os.getenv("ANON_KEY")

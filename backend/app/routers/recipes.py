@@ -5,21 +5,15 @@ from ..models.User import User
 from ..dependencies import auth_dependency
 from ..auth.auth import extract_token
 from dotenv import load_dotenv
-from loguru import logger
+from ..logging_config import get_module_logger
 import os, sys
 
 router = APIRouter(
     prefix="/recipes"
 )
 
-# Create a bound logger for recipes
-recipes_logger = logger.bind(module="recipes")
-log_path = os.path.join(os.path.dirname(__file__), "recipes.log")
-
-# Add handler with filter for recipes module
-logger.add(log_path, rotation="1 day", retention="1 day", colorize=False, 
-           format="{time} | {level} | {message}", 
-           filter=lambda record: record["extra"].get("module") == "recipes")
+# Get the module logger from centralized config
+recipes_logger = get_module_logger("recipes")
 
 load_dotenv()
 url = os.getenv("PROJ_URL")

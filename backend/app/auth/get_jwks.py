@@ -1,16 +1,10 @@
 import requests
 import json
-from loguru import logger
+from ..logging_config import get_module_logger
 import os
+from typing import Dict, Any, Optional
 
-# Create a bound logger for JWKS operations
-jwks_logger = logger.bind(module="jwks")
-jwks_log_path = os.path.join(os.path.dirname(__file__), "jwks.log")
-
-# Add handler with filter for JWKS module
-logger.add(jwks_log_path, rotation="1 day", retention="1 day", colorize=False, 
-           format="{time} | {level} | {message}", 
-           filter=lambda record: record["extra"].get("module") == "jwks")
+jwks_logger = get_module_logger("jwks")
 
 class CognitoJWKSFetcher:
     def __init__(self, region: str, pool_id: str):
@@ -18,11 +12,11 @@ class CognitoJWKSFetcher:
         self.pool_id = pool_id
         self.jwks_url = f"https://cognito-idp.{region}.amazonaws.com/{pool_id}/.well-known/jwks.json"
     
-        
-    def get_jwks(self):
+    def fetch_jwks(self) -> Dict[str, Any]:
         try:
             response = requests.get(self.jwks_url, timeout=10)
             response.raise_for_status()
+            
             jwks_data = response.json()
             
             if 'keys' not in jwks_data:
@@ -41,18 +35,10 @@ class CognitoJWKSFetcher:
             jwks_logger.error(f"Unexpected error fetching JWKS: {e}")
             raise
     
-    def get_key_by_kid(self, kid: str):
-        """
-        Get a specific key from JWKS by its key ID (kid).
-        
-        Args:
-            kid: The key ID to search for
-            
-        Returns:
-            The JWK dictionary if found, None otherwise
-        """
+    def get_key_by_kid(self, kid: str) -> Optional[Dict[str, Any]]:
         try:
-            jwks = self.get_jwks()
+            jwks = self.fetch_jwks()
+            
             for key in jwks['keys']:
                 if key.get('kid') == kid:
                     jwks_logger.debug(f"Found key with kid: {kid}")
@@ -64,5 +50,3 @@ class CognitoJWKSFetcher:
         except Exception as e:
             jwks_logger.error(f"Error getting key by kid: {e}")
             return None
-
-

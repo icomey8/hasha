@@ -22,7 +22,7 @@ const NewRecipeButton = ({
 
 	const handleSubmit = (recipeData: RecipeType) => {
 		onRecipeCreate({
-			recipe_name: recipeData.recipe_name || "Untitled Recipe",
+			name: recipeData.name || "Untitled Recipe",
 			description: `${recipeData.type} • ${recipeData.cuisine} • ${recipeData.totalTime} mins`,
 			ingredients: recipeData.ingredients,
 			preparation: recipeData.preparation,

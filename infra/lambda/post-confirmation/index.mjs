@@ -4,7 +4,7 @@ async function handler(event, context) {
 	console.log("Context:", JSON.stringify(context, null, 2));
 
 	try {
-		const userId = event.userName;
+		const userId = event.request.userAttributes.sub;
 		const email = event.request.userAttributes.email;
 
 		console.log(`Processing user`);
@@ -30,19 +30,14 @@ async function handler(event, context) {
 			body: JSON.stringify(requestBody),
 		});
 
-		console.log(`Backend response status: ${response.status}`);
-
 		if (!response.ok) {
-			const errorText = await response.text();
 			console.error(
 				`Backend request failed: ${response.status} ${response.statusText}`
 			);
-			console.error(`Error response body: ${errorText}`);
 			throw new Error(
 				`Backend request failed: ${response.status} ${response.statusText}`
 			);
 		} else {
-			const result = await response.json();
 			console.log("✅ User created successfully:");
 		}
 

@@ -14,7 +14,7 @@ type RecipeFormProps = {
 };
 
 const FormInputSchema = z.object({
-	recipe_name: z
+	name: z
 		.string()
 		.min(2, "Title must be at least 2 characters")
 		.max(100, "Title must be less than 100 characters"),
@@ -69,7 +69,7 @@ const RecipeForm = ({ onSubmit, onClose }: RecipeFormProps) => {
 	} = useForm<FormInputType>({
 		resolver: zodResolver(FormInputSchema),
 		defaultValues: {
-			recipe_name: "",
+			name: "",
 			ingredients: [{ name: "", amount: "" }],
 			preparation: [{ text: "" }],
 			totalTime: "",
@@ -127,15 +127,13 @@ const RecipeForm = ({ onSubmit, onClose }: RecipeFormProps) => {
 				<Label htmlFor="recipe_name">Recipe Title</Label>
 				<Input
 					id="recipe_name"
-					{...register("recipe_name", { required: true })}
-					aria-invalid={errors.recipe_name ? "true" : "false"}
+					{...register("name", { required: true })}
+					aria-invalid={errors.name ? "true" : "false"}
 					placeholder="Enter recipe title"
 					className="mt-1"
 				/>
-				{errors.recipe_name && (
-					<p className="text-sm text-red-500 mt-1">
-						{errors.recipe_name.message}
-					</p>
+				{errors.name && (
+					<p className="text-sm text-red-500 mt-1">{errors.name.message}</p>
 				)}
 			</div>
 

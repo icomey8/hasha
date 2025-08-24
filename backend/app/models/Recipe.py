@@ -8,8 +8,8 @@ class Recipe(SQLModel, table=True):
     id: int = Field(primary_key=True)
     user_id: int = Field(foreign_key="user.cognito_id")
     recipe_name: str = Field(nullable=True)
-    ingredients: str
-    preparation: str
+    ingredients = Field(sa_column=Column(JSONB))
+    preparation = Field(sa_column=Column(JSONB))
     metadata: Dict[str, Any] = Field(sa_column=Column(JSONB))
     created_at: datetime.datetime = Field()
     

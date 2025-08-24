@@ -21,24 +21,25 @@ async def create_recipe(request: Request, user = Depends(auth_dependency), token
     logger.info("=== POST /create-recipe endpoint called ===")
     
     body = await request.json()
-    # client = create_client(supabase_key=anon_key, supabase_url=url, options=ClientOptions(headers={"Authorization": f"Bearer {token}"}))
-    #logger.info("✅ Supabase client created")
+    client = create_client(supabase_key=anon_key, supabase_url=url, options=ClientOptions(headers={"Authorization": f"Bearer {token}"}))
+    logger.info("✅ Supabase client created")
+    user_id = user.get("sub")
     
     try: 
-        # result = client.table("recipes").insert({
-        #         "user_id": body["id"],
-        #         "name": body["recipe_name"],
-        #         "preparation": body["preparation"],
-        #         "ingredients": body["ingredients"],
-        #         "metadata": {
-        #             "total_time": body["totalTime"],
-        #             "type": body["type"],  # Changed from "entree" to "type"
-        #             "cuisine": body["cuisine"]
-        #         }
-        #     }
-        #     ).execute()
+        result = client.table("recipes").insert({
+                "name": body["name"],
+                "preparation": body["preparation"],
+                "ingredients": body["ingredients"],
+                "user_id": user_id,
+                "metadata": {
+                    "total_time": body["totalTime"],
+                    "type": body["type"],  # Changed from "entree" to "type"
+                    "cuisine": body["cuisine"]
+                }
+            }
+            ).execute()
         
-        # logger.info(f"✅ User created successfully: {result.data}")
+        logger.info(f"✅ User created successfully: {result.data}")
         logger.info(f"✅ Data received successfully: {body}")
         return {"status": "success", "recipe": body}
         

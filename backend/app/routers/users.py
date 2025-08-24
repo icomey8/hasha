@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Header, HTTPException, status, Request, Depends
+from fastapi import APIRouter, HTTPException, status, Request, Depends
 from typing import List
 from supabase import create_client, ClientOptions
 from ..models.User import User
@@ -6,15 +6,20 @@ from ..dependencies import auth_dependency
 from ..auth.auth import extract_token
 from dotenv import load_dotenv
 from loguru import logger
-import os, sys
+import os
+
+load_dotenv()
 
 router = APIRouter(
     prefix="/users"
 )
 
-load_dotenv()
 url = os.getenv("PROJ_URL")
 anon_key = os.getenv("ANON_KEY")
+service_role = os.getenv("SERVICE_ROLE")   
+backend_secret = os.getenv("BACKEND_SECRET")
+
+service_client = create_client(supabase_url=url, supabase_key=service_role)
 
 @router.get("/", response_model=List[User])
 def list_users(user = Depends(auth_dependency), token = Depends(extract_token)):
@@ -40,9 +45,6 @@ def list_users(user = Depends(auth_dependency), token = Depends(extract_token)):
 async def create_new_user(request: Request, token = Depends(extract_token)):
     logger.info("=== CREATE USER ENDPOINT CALLED ===")
     
-    service_role = os.getenv("SERVICE_ROLE")
-    backend_secret = os.getenv("BACKEND_SECRET")
-    
     if not token or token != backend_secret: 
         logger.error("❌ Authorization failed")
         raise HTTPException(status_code=401, detail="Unauthorized")
@@ -50,11 +52,10 @@ async def create_new_user(request: Request, token = Depends(extract_token)):
     logger.info("✅ Authorization successful")
     
     body = await request.json()
-    client = create_client(supabase_url=url, supabase_key=service_role)
     
     try:
         logger.info("Attempting to insert user into Supabase...")
-        result = client.table("users").insert({
+        result = service_client.table("users").insert({
             "cognito_id": body["id"],
             "username": body.get("email", "unknown").split('@')[0]  
         }).execute()

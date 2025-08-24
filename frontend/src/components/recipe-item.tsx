@@ -10,7 +10,7 @@ import {
 import { type RecipeType } from "@/types/recipe";
 
 const Recipe = ({
-	recipe_name = "Untitled Recipe",
+	name = "Untitled Recipe",
 	description = "No description",
 	ingredients = [],
 	preparation = [],
@@ -33,7 +33,7 @@ const Recipe = ({
 
 						<div className="flex-1 ml-4 flex flex-col justify-center min-w-0">
 							<h3 className="text-lg font-semibold text-gray-800 truncate">
-								{recipe_name}
+								{name}
 							</h3>
 							<p className="text-sm text-gray-500 mt-1 truncate">
 								{description}
@@ -44,9 +44,7 @@ const Recipe = ({
 			</DialogTrigger>
 			<DialogContent className="!max-w-4xl !w-full min-w-[500px]">
 				<DialogHeader>
-					<DialogTitle className="text-2xl font-semibold">
-						{recipe_name}
-					</DialogTitle>
+					<DialogTitle className="text-2xl font-semibold">{name}</DialogTitle>
 					<DialogDescription>
 						{type && cuisine && totalTime
 							? `${type} • ${cuisine} • ${totalTime} mins`

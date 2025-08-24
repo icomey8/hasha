@@ -34,7 +34,7 @@ function RouteComponent() {
 			id: 2,
 			image:
 				"https://cdn.cosmos.so/0ea26e1b-6e2c-4a85-836f-9048027b7a0f?format=jpeg",
-			title: "Mom's Spaghetti & Meatballs",
+			name: "Mom's Spaghetti & Meatballs",
 			description: "Entree • Italian • 30 mins",
 			ingredients: [
 				{ name: "Pasta", amount: "1 lb" },
@@ -48,7 +48,7 @@ function RouteComponent() {
 					amount: "4 oz",
 				},
 			],
-			steps: [
+			preparation: [
 				{ text: "Bring a large pot of salted water to a boil." },
 				{
 					text: "Heat a large, high-sided skillet over medium-high. Add the oil and bacon and cook, stirring occasionally, until the bacon is crispy at the edges, about 5 minutes. Carefully drain all but 3 tablespoons of the fat, reserving any excess for later.",
@@ -68,21 +68,21 @@ function RouteComponent() {
 			id: 3,
 			image:
 				"https://cdn.cosmos.so/0ea26e1b-6e2c-4a85-836f-9048027b7a0f?format=jpeg",
-			title: "Another Recipe",
+			name: "Another Recipe",
 			description: "Dessert • American • 45 mins",
 		},
 		{
 			id: 4,
 			image:
 				"https://cdn.cosmos.so/0ea26e1b-6e2c-4a85-836f-9048027b7a0f?format=jpeg",
-			title: "Third Recipe",
+			name: "Third Recipe",
 			description: "Appetizer • Mexican • 15 mins",
 		},
 		{
 			id: 5,
 			image:
 				"https://cdn.cosmos.so/0ea26e1b-6e2c-4a85-836f-9048027b7a0f?format=jpeg",
-			title: "Fourth Recipe",
+			name: "Fourth Recipe",
 			description: "Side • Chinese • 20 mins",
 		},
 	]);
@@ -118,10 +118,10 @@ function RouteComponent() {
 			image:
 				newRecipeData.image ||
 				"https://i.pinimg.com/1200x/bb/d8/7c/bbd87ca99b1849996d5d12f516f6cf94.jpg",
-			title: newRecipeData.recipe_name || "Untitled Recipe",
+			name: newRecipeData.name || "Untitled Recipe",
 			description: newRecipeData.description || "No description",
 			ingredients: newRecipeData.ingredients || [],
-			steps: newRecipeData.preparation || [],
+			preparation: newRecipeData.preparation || [],
 			totalTime: newRecipeData.totalTime || "",
 			type: newRecipeData.type || "",
 			cuisine: newRecipeData.cuisine || "",
@@ -193,10 +193,10 @@ function RouteComponent() {
 						<Recipe
 							key={recipe.id}
 							image={recipe.image}
-							recipe_name={recipe.title}
+							name={recipe.name}
 							description={recipe.description}
 							ingredients={recipe.ingredients}
-							preparation={recipe.steps}
+							preparation={recipe.preparation}
 							totalTime={recipe.totalTime}
 							type={recipe.type}
 							cuisine={recipe.cuisine}

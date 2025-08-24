@@ -2,10 +2,8 @@ import jwt
 from datetime import datetime, timezone
 from typing import Dict, Any
 import base64
-from ..logging_config import get_module_logger
 import os
-
-token_logger = get_module_logger("token_validation")
+from loguru import logger
 
 class CognitoTokenValidationError(Exception):
     pass
@@ -18,7 +16,7 @@ def validate_jwt(token, jwks_fetcher, audience, region, user_pool_id):
         if not kid:
             raise CognitoTokenValidationError("Token missing 'kid' in header")
         
-        token_logger.debug(f"Token kid: {kid}")
+        logger.debug(f"Token kid: {kid}")
         
         jwk = jwks_fetcher.get_key_by_kid(kid)
         if not jwk:
@@ -48,7 +46,7 @@ def validate_jwt(token, jwks_fetcher, audience, region, user_pool_id):
                 f"Invalid token_use: expected 'id', got '{token_use}'"
             )
         
-        token_logger.info(f"Successfully validated token for user: {decoded_token.get('sub')}")
+        logger.info(f"Successfully validated token for user: {decoded_token.get('sub')}")
         return decoded_token
         
     except jwt.ExpiredSignatureError:
@@ -62,7 +60,7 @@ def validate_jwt(token, jwks_fetcher, audience, region, user_pool_id):
     except jwt.InvalidTokenError as e:
         raise CognitoTokenValidationError(f"Invalid token: {str(e)}")
     except Exception as e:
-        token_logger.error(f"Unexpected error validating token: {e}")
+        logger.error(f"Unexpected error validating token: {e}")
         raise CognitoTokenValidationError(f"Token validation failed: {str(e)}")
 
 
@@ -103,7 +101,7 @@ def _jwk_to_public_key(jwk: Dict[str, Any]):
             raise CognitoTokenValidationError(f"Unsupported key type: {kty}")
             
     except Exception as e:
-        token_logger.error(f"Failed to convert JWK to public key: {e}")
+        logger.error(f"Failed to convert JWK to public key: {e}")
         raise CognitoTokenValidationError(f"JWK conversion failed: {str(e)}")
 
 

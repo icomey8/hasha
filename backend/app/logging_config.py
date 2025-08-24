@@ -3,43 +3,33 @@ import sys
 from loguru import logger
 
 def setup_logging():
-    """Setup logging configuration for all modules."""
+    """Setup simple logging configuration with one log file."""
     
     # Remove default handlers first
     logger.remove()
     
-    # Add handlers for each module with proper filtering
-    modules = [
-        ("users", "app/routers/users.log"),
-        ("recipes", "app/routers/recipes.log"),
-        ("auth", "app/auth/auth.log"),
-        ("token_validation", "app/auth/token_validation.log"),
-        ("jwks", "app/auth/jwks.log"),
-    ]
-    
-    for module_name, log_path in modules:
-        os.makedirs(os.path.dirname(log_path), exist_ok=True)
-        
-        logger.add(
-            log_path,
-            rotation="1 day",
-            retention="1 day",
-            colorize=False,
-            format="{time} | {level} | {message}",
-            filter=lambda record, mod=module_name: record["extra"].get("module") == mod
-        )
-    
+    # Add console handler
     logger.add(
         sys.stderr,
-        level="WARNING",
+        level="INFO",
         format="{time} | {level} | {message}",
-        filter=lambda record: not record["extra"].get("module")
+        colorize=True
+    )
+    
+    # Create logs directory if it doesn't exist
+    os.makedirs("logs", exist_ok=True)
+    
+    # Add single file handler for all logs
+    logger.add(
+        "logs/app.log",
+        rotation="1 day",
+        retention="1 days",
+        colorize=False,
+        format="{time} | {level} | {message}",
+        enqueue=True
     )
     
     print("✅ Logging configuration initialized")
 
-def get_module_logger(module_name: str):
-    """Get a bound logger for a specific module."""
-    return logger.bind(module=module_name)
-
+# Initialize logging when module is imported
 setup_logging()

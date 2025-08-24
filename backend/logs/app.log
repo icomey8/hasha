@@ -1,0 +1,7 @@
+2025-08-24T02:39:04.705015+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-24T02:39:05.188535+0000 | INFO | Successfully fetched JWKS with 2 keys
+2025-08-24T02:39:05.191742+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-24T02:39:05.216569+0000 | INFO | Successfully validated token for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
+2025-08-24T02:39:05.216985+0000 | INFO | Authentication successful for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
+2025-08-24T02:39:05.217770+0000 | INFO | === POST /create-recipe endpoint called ===
+2025-08-24T02:39:05.218575+0000 | INFO | ✅ Data received successfully: {'id': 1756003144575, 'image': 'https://i.pinimg.com/1200x/bb/d8/7c/bbd87ca99b1849996d5d12f516f6cf94.jpg', 'title': 'asd', 'description': 'appetizer • mexican • 15 mins', 'ingredients': [{'name': 'asdad', 'amount': '1 oz'}], 'steps': [{'text': 'sdasdzxc'}, {'text': 'qwerdsf'}], 'totalTime': '15', 'type': 'appetizer', 'cuisine': 'mexican'}

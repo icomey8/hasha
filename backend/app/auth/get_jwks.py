@@ -1,10 +1,8 @@
 import requests
 import json
-from ..logging_config import get_module_logger
 import os
 from typing import Dict, Any, Optional
-
-jwks_logger = get_module_logger("jwks")
+from loguru import logger
 
 class CognitoJWKSFetcher:
     def __init__(self, region: str, pool_id: str):
@@ -22,17 +20,17 @@ class CognitoJWKSFetcher:
             if 'keys' not in jwks_data:
                 raise ValueError("Invalid JWKS format: missing 'keys' field")
             
-            jwks_logger.info(f"Successfully fetched JWKS with {len(jwks_data['keys'])} keys")
+            logger.info(f"Successfully fetched JWKS with {len(jwks_data['keys'])} keys")
             return jwks_data
             
         except requests.RequestException as e:
-            jwks_logger.error(f"Failed to fetch JWKS: {e}")
+            logger.error(f"Failed to fetch JWKS: {e}")
             raise
         except json.JSONDecodeError as e:
-            jwks_logger.error(f"Invalid JSON in JWKS response: {e}")
+            logger.error(f"Invalid JSON in JWKS response: {e}")
             raise
         except Exception as e:
-            jwks_logger.error(f"Unexpected error fetching JWKS: {e}")
+            logger.error(f"Unexpected error fetching JWKS: {e}")
             raise
     
     def get_key_by_kid(self, kid: str) -> Optional[Dict[str, Any]]:
@@ -41,12 +39,12 @@ class CognitoJWKSFetcher:
             
             for key in jwks['keys']:
                 if key.get('kid') == kid:
-                    jwks_logger.debug(f"Found key with kid: {kid}")
+                    logger.debug(f"Found key with kid: {kid}")
                     return key
             
-            jwks_logger.warning(f"Key with kid '{kid}' not found in JWKS")
+            logger.warning(f"Key with kid '{kid}' not found in JWKS")
             return None
             
         except Exception as e:
-            jwks_logger.error(f"Error getting key by kid: {e}")
+            logger.error(f"Error getting key by kid: {e}")
             return None

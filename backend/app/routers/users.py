@@ -7,18 +7,19 @@ from ..auth.auth import extract_token
 from dotenv import load_dotenv
 from loguru import logger
 import os, sys
-import copy
 
 router = APIRouter(
     prefix="/users"
 )
 
-# Create an independent logger for users using deepcopy
-users_logger = copy.deepcopy(logger)
+# Create a bound logger for users
+users_logger = logger.bind(module="users")
 log_path = os.path.join(os.path.dirname(__file__), "users.log")
 
-# Add handler to the independent logger
-users_logger.add(log_path, rotation="1 day", retention="1 day", colorize=False, format="{time} | {level} | {message}")
+# Add handler with filter for users module
+logger.add(log_path, rotation="1 day", retention="1 day", colorize=False, 
+           format="{time} | {level} | {message}", 
+           filter=lambda record: record["extra"].get("module") == "users")
 
 load_dotenv()
 url = os.getenv("PROJ_URL")

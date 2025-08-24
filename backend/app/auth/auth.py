@@ -1,16 +1,17 @@
-from .validate_token import validate_jwt, CognitoTokenValidationError
-from fastapi import Depends, HTTPException, status, Header
+from fastapi import HTTPException, status, Header, Depends
+from typing import Optional, Callable, Dict, Any
 from loguru import logger
-from typing import Callable, Dict, Any
-import copy
 import os
+from .validate_token import validate_jwt, CognitoTokenValidationError
 
-# Create an independent logger for auth
-auth_logger = copy.deepcopy(logger)
+# Create a bound logger for auth
+auth_logger = logger.bind(module="auth")
 auth_log_path = os.path.join(os.path.dirname(__file__), "auth.log")
 
-# Add handler to the independent logger
-auth_logger.add(auth_log_path, rotation="1 day", retention="1 day", colorize=False, format="{time} | {level} | {message}")
+# Add handler with filter for auth module
+logger.add(auth_log_path, rotation="1 day", retention="1 day", colorize=False, 
+           format="{time} | {level} | {message}", 
+           filter=lambda record: record["extra"].get("module") == "auth")
 
 
 def extract_token(authorization: str = Header()) -> str:

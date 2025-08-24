@@ -5,12 +5,14 @@ from loguru import logger
 import copy
 import os
 
-# Create an independent logger for token validation
-token_logger = copy.deepcopy(logger)
+# Create a bound logger for token validation
+token_logger = logger.bind(module="token_validation")
 token_log_path = os.path.join(os.path.dirname(__file__), "token_validation.log")
 
-# Add handler to the independent logger
-token_logger.add(token_log_path, rotation="1 day", retention="1 day", colorize=False, format="{time} | {level} | {message}")
+# Add handler with filter for token validation module
+logger.add(token_log_path, rotation="1 day", retention="1 day", colorize=False, 
+           format="{time} | {level} | {message}", 
+           filter=lambda record: record["extra"].get("module") == "token_validation")
 
 class CognitoTokenValidationError(Exception):
     pass

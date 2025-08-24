@@ -1,15 +1,16 @@
 import requests
 import json
 from loguru import logger
-import copy
 import os
 
-# Create an independent logger for JWKS operations
-jwks_logger = copy.deepcopy(logger)
+# Create a bound logger for JWKS operations
+jwks_logger = logger.bind(module="jwks")
 jwks_log_path = os.path.join(os.path.dirname(__file__), "jwks.log")
 
-# Add handler to the independent logger
-jwks_logger.add(jwks_log_path, rotation="1 day", retention="1 day", colorize=False, format="{time} | {level} | {message}")
+# Add handler with filter for JWKS module
+logger.add(jwks_log_path, rotation="1 day", retention="1 day", colorize=False, 
+           format="{time} | {level} | {message}", 
+           filter=lambda record: record["extra"].get("module") == "jwks")
 
 class CognitoJWKSFetcher:
     def __init__(self, region: str, pool_id: str):

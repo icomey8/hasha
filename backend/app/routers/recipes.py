@@ -7,17 +7,19 @@ from ..auth.auth import extract_token
 from dotenv import load_dotenv
 from loguru import logger
 import os, sys
-import copy
 
 router = APIRouter(
     prefix="/recipes"
 )
 
-# Create an independent logger for recipes using deepcopy
-recipes_logger = copy.deepcopy(logger)
+# Create a bound logger for recipes
+recipes_logger = logger.bind(module="recipes")
 log_path = os.path.join(os.path.dirname(__file__), "recipes.log")
 
-recipes_logger.add(log_path, rotation="1 day", retention="1 day", colorize=False, format="{time} | {level} | {message}")
+# Add handler with filter for recipes module
+logger.add(log_path, rotation="1 day", retention="1 day", colorize=False, 
+           format="{time} | {level} | {message}", 
+           filter=lambda record: record["extra"].get("module") == "recipes")
 
 load_dotenv()
 url = os.getenv("PROJ_URL")

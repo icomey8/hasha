@@ -6,7 +6,7 @@ from typing import List, Optional, Dict, Any
 
 
 class User(SQLModel, table=True):
-    __tablename__ = "user"
+    __tablename__ = "users"
     __table_args__ = {'extend_existing': True}
     
     id: int = Field(primary_key=True)
@@ -17,11 +17,11 @@ class User(SQLModel, table=True):
     recipe: List["Recipe"] = Relationship(back_populates="user")
     
 class Recipe(SQLModel, table=True):
-    __tablename__ = "recipe"
+    __tablename__ = "recipes"
     __table_args__ = {'extend_existing': True}
     
     id: int = Field(primary_key=True)
-    user_id: int = Field(foreign_key="user.cognito_id")
+    user_id: str = Field(foreign_key="users.cognito_id")
     recipe_name: str = Field(nullable=True)
     ingredients: List[Dict[str, Any]] = Field(sa_column=Column(JSONB))
     preparation: List[Dict[str, Any]] = Field(sa_column=Column(JSONB))

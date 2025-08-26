@@ -93,8 +93,8 @@ function RouteComponent() {
 				throw new Error("User is not authenticated");
 			}
 
-			return fetch("http://0.0.0.0:80/recipes/create-recipe", {
-				// return fetch("https://hasha.onrender.com/recipes/create-recipe", {
+			// return fetch("http://0.0.0.0:80/recipes/create-recipe", {
+			return fetch("https://hasha.onrender.com/recipes/create-recipe", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",

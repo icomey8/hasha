@@ -38,7 +38,7 @@ async def create_recipe(request: Request, user = Depends(auth_dependency), token
             }
             ).execute()
         
-        logger.info(f"✅ User created successfully: {result.data}")
+        logger.info(f"✅ Recipe created successfully: {result.data}")
         logger.info(f"✅ Data received successfully: {body}")
         return {"status": "success"}
         

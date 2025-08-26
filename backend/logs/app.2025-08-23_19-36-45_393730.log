@@ -1,0 +1,96 @@
+2025-08-24T02:39:04.705015+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-24T02:39:05.188535+0000 | INFO | Successfully fetched JWKS with 2 keys
+2025-08-24T02:39:05.191742+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-24T02:39:05.216569+0000 | INFO | Successfully validated token for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
+2025-08-24T02:39:05.216985+0000 | INFO | Authentication successful for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
+2025-08-24T02:39:05.217770+0000 | INFO | === POST /create-recipe endpoint called ===
+2025-08-24T02:39:05.218575+0000 | INFO | ✅ Data received successfully: {'id': 1756003144575, 'image': 'https://i.pinimg.com/1200x/bb/d8/7c/bbd87ca99b1849996d5d12f516f6cf94.jpg', 'title': 'asd', 'description': 'appetizer • mexican • 15 mins', 'ingredients': [{'name': 'asdad', 'amount': '1 oz'}], 'steps': [{'text': 'sdasdzxc'}, {'text': 'qwerdsf'}], 'totalTime': '15', 'type': 'appetizer', 'cuisine': 'mexican'}
+2025-08-24T19:42:03.682048+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-24T19:42:04.130381+0000 | INFO | Successfully fetched JWKS with 2 keys
+2025-08-24T19:42:04.131234+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-24T19:42:04.153838+0000 | INFO | Successfully validated token for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
+2025-08-24T19:42:04.154018+0000 | INFO | Authentication successful for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
+2025-08-24T19:42:04.154591+0000 | INFO | === POST /create-recipe endpoint called ===
+2025-08-24T19:42:04.173058+0000 | INFO | ✅ Supabase client created
+2025-08-24T19:42:04.186249+0000 | ERROR | ❌ Error saving the recipe: 'recipe_name'
+2025-08-24T19:42:04.186439+0000 | ERROR | Error type: <class 'KeyError'>
+2025-08-24T19:42:33.351302+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-24T19:42:33.682979+0000 | INFO | Successfully fetched JWKS with 2 keys
+2025-08-24T19:42:33.683564+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-24T19:42:33.685651+0000 | INFO | Successfully validated token for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
+2025-08-24T19:42:33.685870+0000 | INFO | Authentication successful for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
+2025-08-24T19:42:33.686198+0000 | INFO | === POST /create-recipe endpoint called ===
+2025-08-24T19:42:33.702951+0000 | INFO | ✅ Supabase client created
+2025-08-24T19:42:33.713944+0000 | ERROR | ❌ Error saving the recipe: 'recipe_name'
+2025-08-24T19:42:33.714185+0000 | ERROR | Error type: <class 'KeyError'>
+2025-08-24T19:43:57.877235+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-24T19:43:58.207887+0000 | INFO | Successfully fetched JWKS with 2 keys
+2025-08-24T19:43:58.208692+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-24T19:43:58.212919+0000 | INFO | Successfully validated token for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
+2025-08-24T19:43:58.213133+0000 | INFO | Authentication successful for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
+2025-08-24T19:43:58.213496+0000 | INFO | === POST /create-recipe endpoint called ===
+2025-08-24T19:43:58.228993+0000 | INFO | ✅ Supabase client created
+2025-08-24T19:43:58.229301+0000 | INFO | ✅ Data received successfully: {'id': 1756064637777, 'image': 'https://i.pinimg.com/1200x/bb/d8/7c/bbd87ca99b1849996d5d12f516f6cf94.jpg', 'title': ',cnvb', 'description': 'side • french • 10 mins', 'ingredients': [{'name': 'jkhfkjwer', 'amount': '1 bag'}], 'steps': [{'text': 'askdmnkjb amnsbdjmb xckvhj'}], 'totalTime': '10', 'type': 'side', 'cuisine': 'french'}
+2025-08-24T19:54:36.867038+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-24T19:54:37.266434+0000 | INFO | Successfully fetched JWKS with 2 keys
+2025-08-24T19:54:37.269306+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-24T19:54:37.325553+0000 | INFO | Successfully validated token for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
+2025-08-24T19:54:37.326157+0000 | INFO | Authentication successful for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
+2025-08-24T19:54:37.326519+0000 | INFO | === POST /create-recipe endpoint called ===
+2025-08-24T19:54:37.354428+0000 | INFO | ✅ Supabase client created
+2025-08-24T19:54:37.369017+0000 | ERROR | ❌ Error saving the recipe: 'title'
+2025-08-24T19:54:37.370104+0000 | ERROR | Error type: <class 'KeyError'>
+2025-08-24T19:59:27.042166+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-24T19:59:27.473321+0000 | INFO | Successfully fetched JWKS with 2 keys
+2025-08-24T19:59:27.475990+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-24T19:59:27.499631+0000 | INFO | Successfully validated token for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
+2025-08-24T19:59:27.500659+0000 | INFO | Authentication successful for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
+2025-08-24T19:59:27.501333+0000 | INFO | === POST /create-recipe endpoint called ===
+2025-08-24T19:59:27.551802+0000 | INFO | ✅ Supabase client created
+2025-08-24T19:59:27.578009+0000 | ERROR | ❌ Error saving the recipe: 'title'
+2025-08-24T19:59:27.578273+0000 | ERROR | Error type: <class 'KeyError'>
+2025-08-24T20:02:01.731735+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-24T20:02:02.230669+0000 | INFO | Successfully fetched JWKS with 2 keys
+2025-08-24T20:02:02.232518+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-24T20:02:02.239110+0000 | INFO | Successfully validated token for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
+2025-08-24T20:02:02.239464+0000 | INFO | Authentication successful for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
+2025-08-24T20:02:02.240028+0000 | INFO | === POST /create-recipe endpoint called ===
+2025-08-24T20:02:02.259776+0000 | INFO | ✅ Supabase client created
+2025-08-24T20:02:03.644318+0000 | ERROR | ❌ Error saving the recipe: {'message': 'insert or update on table "recipes" violates foreign key constraint "recipes_user_id_fkey"', 'code': '23503', 'hint': None, 'details': 'Key (user_id)=(1756065721653) is not present in table "users".'}
+2025-08-24T20:02:03.645147+0000 | ERROR | Error type: <class 'postgrest.exceptions.APIError'>
+2025-08-24T20:06:06.064960+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-24T20:06:06.420303+0000 | INFO | Successfully fetched JWKS with 2 keys
+2025-08-24T20:06:06.423963+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-24T20:06:06.440080+0000 | INFO | Successfully validated token for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
+2025-08-24T20:06:06.440430+0000 | INFO | Authentication successful for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
+2025-08-24T20:06:06.440923+0000 | INFO | === POST /create-recipe endpoint called ===
+2025-08-24T20:06:06.469057+0000 | INFO | ✅ Supabase client created
+2025-08-24T20:06:07.192710+0000 | INFO | ✅ User created successfully: [{'id': 3, 'created_at': '2025-08-24T20:06:07.035585+00:00', 'name': 'Untitled Recipe', 'ingredients': [{'name': 'organic broccoli', 'amount': '1 bunch'}, {'name': 'garlic', 'amount': '1 clove'}], 'metadata': {'type': 'side', 'cuisine': 'chinese', 'total_time': '20'}, 'user_id': None, 'preparation': [{'text': 'heat pan'}, {'text': 'wash broccoli'}, {'text': 'cut garlic and add to pan with oil'}, {'text': 'cook broccoli for 1 min, then add water to steam.'}]}]
+2025-08-24T20:06:07.194038+0000 | INFO | ✅ Data received successfully: {'id': 1756065965912, 'image': 'https://i.pinimg.com/1200x/bb/d8/7c/bbd87ca99b1849996d5d12f516f6cf94.jpg', 'name': 'Untitled Recipe', 'description': 'side • chinese • 20 mins', 'ingredients': [{'name': 'organic broccoli', 'amount': '1 bunch'}, {'name': 'garlic', 'amount': '1 clove'}], 'preparation': [{'text': 'heat pan'}, {'text': 'wash broccoli'}, {'text': 'cut garlic and add to pan with oil'}, {'text': 'cook broccoli for 1 min, then add water to steam.'}], 'totalTime': '20', 'type': 'side', 'cuisine': 'chinese'}
+2025-08-24T20:22:13.869496+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-24T20:22:14.313137+0000 | INFO | Successfully fetched JWKS with 2 keys
+2025-08-24T20:22:14.314349+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-24T20:22:14.334877+0000 | INFO | Successfully validated token for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
+2025-08-24T20:22:14.336330+0000 | INFO | Authentication successful for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
+2025-08-24T20:22:14.337517+0000 | INFO | === POST /create-recipe endpoint called ===
+2025-08-24T20:22:14.367961+0000 | INFO | ✅ Supabase client created
+2025-08-24T20:22:15.833427+0000 | ERROR | ❌ Error saving the recipe: {'message': 'insert or update on table "recipes" violates foreign key constraint "recipes_user_id_fkey"', 'code': '23503', 'hint': None, 'details': 'Key (user_id)=(1756066933752) is not present in table "users".'}
+2025-08-24T20:22:15.835356+0000 | ERROR | Error type: <class 'postgrest.exceptions.APIError'>
+2025-08-24T20:24:26.376603+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-24T20:24:26.822492+0000 | INFO | Successfully fetched JWKS with 2 keys
+2025-08-24T20:24:26.823214+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-24T20:24:26.831126+0000 | INFO | Successfully validated token for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
+2025-08-24T20:24:26.831399+0000 | INFO | Authentication successful for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
+2025-08-24T20:24:26.831759+0000 | INFO | === POST /create-recipe endpoint called ===
+2025-08-24T20:24:26.853934+0000 | INFO | ✅ Supabase client created
+2025-08-24T20:24:27.569207+0000 | ERROR | ❌ Error saving the recipe: {'message': 'insert or update on table "recipes" violates foreign key constraint "recipes_user_id_fkey"', 'code': '23503', 'hint': None, 'details': 'Key (user_id)=(d4e89438-00f1-700a-5a84-3eaf43c64c07) is not present in table "users".'}
+2025-08-24T20:24:27.570045+0000 | ERROR | Error type: <class 'postgrest.exceptions.APIError'>
+2025-08-24T21:19:45.450934+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-24T21:19:45.887018+0000 | INFO | Successfully fetched JWKS with 2 keys
+2025-08-24T21:19:45.888568+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-08-24T21:19:45.905878+0000 | INFO | Successfully validated token for user: b4d8b468-d061-708f-1218-e24a0b5f1b4a
+2025-08-24T21:19:45.906718+0000 | INFO | Authentication successful for user: b4d8b468-d061-708f-1218-e24a0b5f1b4a
+2025-08-24T21:19:45.907304+0000 | INFO | === POST /create-recipe endpoint called ===
+2025-08-24T21:19:45.969865+0000 | INFO | ✅ Supabase client created
+2025-08-24T21:19:46.588352+0000 | INFO | ✅ User created successfully: [{'id': 6, 'created_at': '2025-08-24T21:19:46.440266+00:00', 'name': 'abksjcbjkzxc', 'ingredients': [{'name': 'esasca ', 'amount': '6 oz'}], 'metadata': {'type': 'dessert', 'cuisine': 'chinese', 'total_time': '25'}, 'user_id': 'b4d8b468-d061-708f-1218-e24a0b5f1b4a', 'preparation': [{'text': 'asdnm,zx c'}, {'text': 'ekwqhrlkqjwherklj'}]}]
+2025-08-24T21:19:46.589031+0000 | INFO | ✅ Data received successfully: {'id': 1756070385207, 'image': 'https://i.pinimg.com/1200x/bb/d8/7c/bbd87ca99b1849996d5d12f516f6cf94.jpg', 'name': 'abksjcbjkzxc', 'description': 'dessert • chinese • 25 mins', 'ingredients': [{'name': 'esasca ', 'amount': '6 oz'}], 'preparation': [{'text': 'asdnm,zx c'}, {'text': 'ekwqhrlkqjwherklj'}], 'totalTime': '25', 'type': 'dessert', 'cuisine': 'chinese'}

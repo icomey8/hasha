@@ -3,9 +3,9 @@ from fastapi import FastAPI, HTTPException, status, Header, Request
 from fastapi.middleware.cors import CORSMiddleware
 from supabase import create_client, Client
 from dotenv import load_dotenv
-# from .models.User import User, Recipe
+from .models.models import User, Recipe
 from .routers import users, recipes
-from . import logging_config  # Import to initialize logging
+from . import logging_config 
 import os
 
 load_dotenv()

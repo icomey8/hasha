@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, status, Request, Depends
 from typing import List
 from supabase import create_client, ClientOptions
-from ..models.User import User
+from ..models.models import User
 from ..dependencies import auth_dependency
 from ..auth.auth import extract_token
 from dotenv import load_dotenv
@@ -45,12 +45,11 @@ def list_users(user = Depends(auth_dependency), token = Depends(extract_token)):
 async def create_new_user(request: Request, token = Depends(extract_token)):
     logger.info("=== CREATE USER ENDPOINT CALLED ===")
     
-    if not token or token != backend_secret: 
+    if token != backend_secret: 
         logger.error("❌ Authorization failed")
         raise HTTPException(status_code=401, detail="Unauthorized")
     
     logger.info("✅ Authorization successful")
-    
     body = await request.json()
     
     try:
@@ -59,8 +58,8 @@ async def create_new_user(request: Request, token = Depends(extract_token)):
             "cognito_id": body["id"],
             "username": body.get("email", "unknown").split('@')[0]  
         }).execute()
-        logger.info(f"✅ User created successfully: {result.data}")
-        return {"status": "success", "user": result.data}
+
+        return {"status": "success"}
         
     except Exception as e:
         logger.error(f"❌ Error creating user: {str(e)}")

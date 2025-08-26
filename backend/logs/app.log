@@ -1,96 +1,472 @@
-2025-08-24T02:39:04.705015+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-08-24T02:39:05.188535+0000 | INFO | Successfully fetched JWKS with 2 keys
-2025-08-24T02:39:05.191742+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-08-24T02:39:05.216569+0000 | INFO | Successfully validated token for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
-2025-08-24T02:39:05.216985+0000 | INFO | Authentication successful for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
-2025-08-24T02:39:05.217770+0000 | INFO | === POST /create-recipe endpoint called ===
-2025-08-24T02:39:05.218575+0000 | INFO | ✅ Data received successfully: {'id': 1756003144575, 'image': 'https://i.pinimg.com/1200x/bb/d8/7c/bbd87ca99b1849996d5d12f516f6cf94.jpg', 'title': 'asd', 'description': 'appetizer • mexican • 15 mins', 'ingredients': [{'name': 'asdad', 'amount': '1 oz'}], 'steps': [{'text': 'sdasdzxc'}, {'text': 'qwerdsf'}], 'totalTime': '15', 'type': 'appetizer', 'cuisine': 'mexican'}
-2025-08-24T19:42:03.682048+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-08-24T19:42:04.130381+0000 | INFO | Successfully fetched JWKS with 2 keys
-2025-08-24T19:42:04.131234+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-08-24T19:42:04.153838+0000 | INFO | Successfully validated token for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
-2025-08-24T19:42:04.154018+0000 | INFO | Authentication successful for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
-2025-08-24T19:42:04.154591+0000 | INFO | === POST /create-recipe endpoint called ===
-2025-08-24T19:42:04.173058+0000 | INFO | ✅ Supabase client created
-2025-08-24T19:42:04.186249+0000 | ERROR | ❌ Error saving the recipe: 'recipe_name'
-2025-08-24T19:42:04.186439+0000 | ERROR | Error type: <class 'KeyError'>
-2025-08-24T19:42:33.351302+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-08-24T19:42:33.682979+0000 | INFO | Successfully fetched JWKS with 2 keys
-2025-08-24T19:42:33.683564+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-08-24T19:42:33.685651+0000 | INFO | Successfully validated token for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
-2025-08-24T19:42:33.685870+0000 | INFO | Authentication successful for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
-2025-08-24T19:42:33.686198+0000 | INFO | === POST /create-recipe endpoint called ===
-2025-08-24T19:42:33.702951+0000 | INFO | ✅ Supabase client created
-2025-08-24T19:42:33.713944+0000 | ERROR | ❌ Error saving the recipe: 'recipe_name'
-2025-08-24T19:42:33.714185+0000 | ERROR | Error type: <class 'KeyError'>
-2025-08-24T19:43:57.877235+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-08-24T19:43:58.207887+0000 | INFO | Successfully fetched JWKS with 2 keys
-2025-08-24T19:43:58.208692+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-08-24T19:43:58.212919+0000 | INFO | Successfully validated token for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
-2025-08-24T19:43:58.213133+0000 | INFO | Authentication successful for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
-2025-08-24T19:43:58.213496+0000 | INFO | === POST /create-recipe endpoint called ===
-2025-08-24T19:43:58.228993+0000 | INFO | ✅ Supabase client created
-2025-08-24T19:43:58.229301+0000 | INFO | ✅ Data received successfully: {'id': 1756064637777, 'image': 'https://i.pinimg.com/1200x/bb/d8/7c/bbd87ca99b1849996d5d12f516f6cf94.jpg', 'title': ',cnvb', 'description': 'side • french • 10 mins', 'ingredients': [{'name': 'jkhfkjwer', 'amount': '1 bag'}], 'steps': [{'text': 'askdmnkjb amnsbdjmb xckvhj'}], 'totalTime': '10', 'type': 'side', 'cuisine': 'french'}
-2025-08-24T19:54:36.867038+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-08-24T19:54:37.266434+0000 | INFO | Successfully fetched JWKS with 2 keys
-2025-08-24T19:54:37.269306+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-08-24T19:54:37.325553+0000 | INFO | Successfully validated token for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
-2025-08-24T19:54:37.326157+0000 | INFO | Authentication successful for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
-2025-08-24T19:54:37.326519+0000 | INFO | === POST /create-recipe endpoint called ===
-2025-08-24T19:54:37.354428+0000 | INFO | ✅ Supabase client created
-2025-08-24T19:54:37.369017+0000 | ERROR | ❌ Error saving the recipe: 'title'
-2025-08-24T19:54:37.370104+0000 | ERROR | Error type: <class 'KeyError'>
-2025-08-24T19:59:27.042166+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-08-24T19:59:27.473321+0000 | INFO | Successfully fetched JWKS with 2 keys
-2025-08-24T19:59:27.475990+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-08-24T19:59:27.499631+0000 | INFO | Successfully validated token for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
-2025-08-24T19:59:27.500659+0000 | INFO | Authentication successful for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
-2025-08-24T19:59:27.501333+0000 | INFO | === POST /create-recipe endpoint called ===
-2025-08-24T19:59:27.551802+0000 | INFO | ✅ Supabase client created
-2025-08-24T19:59:27.578009+0000 | ERROR | ❌ Error saving the recipe: 'title'
-2025-08-24T19:59:27.578273+0000 | ERROR | Error type: <class 'KeyError'>
-2025-08-24T20:02:01.731735+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-08-24T20:02:02.230669+0000 | INFO | Successfully fetched JWKS with 2 keys
-2025-08-24T20:02:02.232518+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-08-24T20:02:02.239110+0000 | INFO | Successfully validated token for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
-2025-08-24T20:02:02.239464+0000 | INFO | Authentication successful for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
-2025-08-24T20:02:02.240028+0000 | INFO | === POST /create-recipe endpoint called ===
-2025-08-24T20:02:02.259776+0000 | INFO | ✅ Supabase client created
-2025-08-24T20:02:03.644318+0000 | ERROR | ❌ Error saving the recipe: {'message': 'insert or update on table "recipes" violates foreign key constraint "recipes_user_id_fkey"', 'code': '23503', 'hint': None, 'details': 'Key (user_id)=(1756065721653) is not present in table "users".'}
-2025-08-24T20:02:03.645147+0000 | ERROR | Error type: <class 'postgrest.exceptions.APIError'>
-2025-08-24T20:06:06.064960+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-08-24T20:06:06.420303+0000 | INFO | Successfully fetched JWKS with 2 keys
-2025-08-24T20:06:06.423963+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-08-24T20:06:06.440080+0000 | INFO | Successfully validated token for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
-2025-08-24T20:06:06.440430+0000 | INFO | Authentication successful for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
-2025-08-24T20:06:06.440923+0000 | INFO | === POST /create-recipe endpoint called ===
-2025-08-24T20:06:06.469057+0000 | INFO | ✅ Supabase client created
-2025-08-24T20:06:07.192710+0000 | INFO | ✅ User created successfully: [{'id': 3, 'created_at': '2025-08-24T20:06:07.035585+00:00', 'name': 'Untitled Recipe', 'ingredients': [{'name': 'organic broccoli', 'amount': '1 bunch'}, {'name': 'garlic', 'amount': '1 clove'}], 'metadata': {'type': 'side', 'cuisine': 'chinese', 'total_time': '20'}, 'user_id': None, 'preparation': [{'text': 'heat pan'}, {'text': 'wash broccoli'}, {'text': 'cut garlic and add to pan with oil'}, {'text': 'cook broccoli for 1 min, then add water to steam.'}]}]
-2025-08-24T20:06:07.194038+0000 | INFO | ✅ Data received successfully: {'id': 1756065965912, 'image': 'https://i.pinimg.com/1200x/bb/d8/7c/bbd87ca99b1849996d5d12f516f6cf94.jpg', 'name': 'Untitled Recipe', 'description': 'side • chinese • 20 mins', 'ingredients': [{'name': 'organic broccoli', 'amount': '1 bunch'}, {'name': 'garlic', 'amount': '1 clove'}], 'preparation': [{'text': 'heat pan'}, {'text': 'wash broccoli'}, {'text': 'cut garlic and add to pan with oil'}, {'text': 'cook broccoli for 1 min, then add water to steam.'}], 'totalTime': '20', 'type': 'side', 'cuisine': 'chinese'}
-2025-08-24T20:22:13.869496+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-08-24T20:22:14.313137+0000 | INFO | Successfully fetched JWKS with 2 keys
-2025-08-24T20:22:14.314349+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-08-24T20:22:14.334877+0000 | INFO | Successfully validated token for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
-2025-08-24T20:22:14.336330+0000 | INFO | Authentication successful for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
-2025-08-24T20:22:14.337517+0000 | INFO | === POST /create-recipe endpoint called ===
-2025-08-24T20:22:14.367961+0000 | INFO | ✅ Supabase client created
-2025-08-24T20:22:15.833427+0000 | ERROR | ❌ Error saving the recipe: {'message': 'insert or update on table "recipes" violates foreign key constraint "recipes_user_id_fkey"', 'code': '23503', 'hint': None, 'details': 'Key (user_id)=(1756066933752) is not present in table "users".'}
-2025-08-24T20:22:15.835356+0000 | ERROR | Error type: <class 'postgrest.exceptions.APIError'>
-2025-08-24T20:24:26.376603+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-08-24T20:24:26.822492+0000 | INFO | Successfully fetched JWKS with 2 keys
-2025-08-24T20:24:26.823214+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-08-24T20:24:26.831126+0000 | INFO | Successfully validated token for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
-2025-08-24T20:24:26.831399+0000 | INFO | Authentication successful for user: d4e89438-00f1-700a-5a84-3eaf43c64c07
-2025-08-24T20:24:26.831759+0000 | INFO | === POST /create-recipe endpoint called ===
-2025-08-24T20:24:26.853934+0000 | INFO | ✅ Supabase client created
-2025-08-24T20:24:27.569207+0000 | ERROR | ❌ Error saving the recipe: {'message': 'insert or update on table "recipes" violates foreign key constraint "recipes_user_id_fkey"', 'code': '23503', 'hint': None, 'details': 'Key (user_id)=(d4e89438-00f1-700a-5a84-3eaf43c64c07) is not present in table "users".'}
-2025-08-24T20:24:27.570045+0000 | ERROR | Error type: <class 'postgrest.exceptions.APIError'>
-2025-08-24T21:19:45.450934+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-08-24T21:19:45.887018+0000 | INFO | Successfully fetched JWKS with 2 keys
-2025-08-24T21:19:45.888568+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-08-24T21:19:45.905878+0000 | INFO | Successfully validated token for user: b4d8b468-d061-708f-1218-e24a0b5f1b4a
-2025-08-24T21:19:45.906718+0000 | INFO | Authentication successful for user: b4d8b468-d061-708f-1218-e24a0b5f1b4a
-2025-08-24T21:19:45.907304+0000 | INFO | === POST /create-recipe endpoint called ===
-2025-08-24T21:19:45.969865+0000 | INFO | ✅ Supabase client created
-2025-08-24T21:19:46.588352+0000 | INFO | ✅ User created successfully: [{'id': 6, 'created_at': '2025-08-24T21:19:46.440266+00:00', 'name': 'abksjcbjkzxc', 'ingredients': [{'name': 'esasca ', 'amount': '6 oz'}], 'metadata': {'type': 'dessert', 'cuisine': 'chinese', 'total_time': '25'}, 'user_id': 'b4d8b468-d061-708f-1218-e24a0b5f1b4a', 'preparation': [{'text': 'asdnm,zx c'}, {'text': 'ekwqhrlkqjwherklj'}]}]
-2025-08-24T21:19:46.589031+0000 | INFO | ✅ Data received successfully: {'id': 1756070385207, 'image': 'https://i.pinimg.com/1200x/bb/d8/7c/bbd87ca99b1849996d5d12f516f6cf94.jpg', 'name': 'abksjcbjkzxc', 'description': 'dessert • chinese • 25 mins', 'ingredients': [{'name': 'esasca ', 'amount': '6 oz'}], 'preparation': [{'text': 'asdnm,zx c'}, {'text': 'ekwqhrlkqjwherklj'}], 'totalTime': '25', 'type': 'dessert', 'cuisine': 'chinese'}
+2025-08-25T11:11:09.061682-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:11:09.062035-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:11:09.062212-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T11:11:09.062278-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T11:13:00.509485-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:13:00.509866-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:13:00.510030-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T11:13:00.510102-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T11:13:26.251183-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:13:26.251505-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:13:26.251696-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T11:13:26.251769-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T11:20:30.330669-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:20:30.330976-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:20:30.331168-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T11:20:30.331238-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T11:21:49.434991-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:21:49.435337-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:21:49.435619-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T11:21:49.435764-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T11:24:32.643086-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:24:32.643441-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:24:32.643705-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T11:24:32.643824-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T11:29:47.202338-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:29:47.202645-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:29:47.202786-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T11:29:47.202857-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T11:41:20.822631-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:41:20.823009-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:41:20.823154-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T11:41:20.823229-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T11:44:03.675880-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:44:03.676162-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:44:03.676348-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T11:44:03.676419-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T11:44:03.678768-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:44:03.683743-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:44:03.688283-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T11:44:03.688361-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T11:44:25.106273-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:44:25.112762-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:44:25.119369-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T11:44:25.119534-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T11:46:44.766501-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:46:44.766845-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:46:44.767089-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T11:46:44.767184-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T11:46:44.769424-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:46:44.774233-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:46:44.778870-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T11:46:44.778949-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T11:46:55.766939-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:46:55.767260-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:46:55.767458-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T11:46:55.767529-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T11:46:55.770905-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:46:55.771123-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:46:55.771263-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T11:46:55.771347-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T11:48:19.225174-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:48:19.225448-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:48:19.225632-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T11:48:19.225705-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T11:48:19.228420-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:48:19.228585-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:48:19.228705-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T11:48:19.228765-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T11:48:19.231329-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:48:19.231488-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:48:19.231635-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T11:48:19.231725-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}], 'ingredients': [{'name': 'ingredient 1'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T11:52:40.897107-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:52:40.897403-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:52:40.897592-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T11:52:40.897667-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T11:52:40.900848-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:52:40.901099-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:52:40.901272-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T11:52:40.901373-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T11:52:40.905194-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:53:41.922935-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:53:41.923268-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:53:41.923471-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T11:53:41.923545-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T11:53:41.926496-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:53:41.926731-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:53:41.926889-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T11:53:41.927021-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T11:53:41.930281-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:53:41.930539-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:53:41.930746-0700 | ERROR | ❌ Error saving the recipe: Foreign key constraint violation: user_id not found
+2025-08-25T11:53:41.930863-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T11:53:41.932831-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:54:49.877181-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:54:49.877597-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:54:49.877866-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T11:54:49.877949-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T11:54:49.881471-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:54:49.881688-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:54:49.881813-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T11:54:49.881928-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T11:54:49.884846-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:54:49.885013-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:54:49.885175-0700 | ERROR | ❌ Error saving the recipe: Foreign key constraint violation: user_id not found
+2025-08-25T11:54:49.885240-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T11:54:49.887005-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T11:54:49.887142-0700 | INFO | ✅ Supabase client created
+2025-08-25T11:54:49.887224-0700 | ERROR | ❌ Error saving the recipe: Invalid JWT token
+2025-08-25T11:54:49.887329-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T20:04:29.717743-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:04:29.718034-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:04:29.718240-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T20:04:29.718320-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T20:04:29.721005-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:04:29.721115-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:04:29.721219-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T20:04:29.721302-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T20:04:29.723538-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:04:29.723652-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:04:29.723775-0700 | ERROR | ❌ Error saving the recipe: Foreign key constraint violation: user_id not found
+2025-08-25T20:04:29.723867-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T20:04:29.725513-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:04:29.725616-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:04:29.725744-0700 | ERROR | ❌ Error saving the recipe: Invalid JWT token
+2025-08-25T20:04:29.725802-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T20:09:44.062762-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:09:44.063104-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:09:44.063320-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T20:09:44.063395-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T20:09:44.066495-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:09:44.066617-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:09:44.066804-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T20:09:44.066882-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T20:09:44.069350-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:09:44.069466-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:09:44.069624-0700 | ERROR | ❌ Error saving the recipe: Foreign key constraint violation: user_id not found
+2025-08-25T20:09:44.069685-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T20:09:44.071343-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:09:44.071453-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:09:44.071533-0700 | ERROR | ❌ Error saving the recipe: Invalid JWT token
+2025-08-25T20:09:44.071620-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T20:09:44.074170-0700 | INFO | === GET /users ENDPOINT CALLED ===
+2025-08-25T20:09:44.078737-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:09:45.163730-0700 | ERROR | ❌ <class 'postgrest.exceptions.APIError'>: {'message': 'Expected 3 parts in JWT; got 2', 'code': 'PGRST301', 'hint': None, 'details': None}
+2025-08-25T20:09:58.497221-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:09:58.497575-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:09:58.497813-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T20:09:58.497893-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T20:09:58.501539-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:09:58.501742-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:09:58.501870-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T20:09:58.501978-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T20:09:58.504625-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:09:58.504793-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:09:58.505007-0700 | ERROR | ❌ Error saving the recipe: Foreign key constraint violation: user_id not found
+2025-08-25T20:09:58.505090-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T20:09:58.507264-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:09:58.507431-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:09:58.507520-0700 | ERROR | ❌ Error saving the recipe: Invalid JWT token
+2025-08-25T20:09:58.507643-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T20:09:58.510573-0700 | INFO | === GET /users ENDPOINT CALLED ===
+2025-08-25T20:09:58.515165-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:09:58.990508-0700 | ERROR | ❌ <class 'postgrest.exceptions.APIError'>: {'message': 'Expected 3 parts in JWT; got 2', 'code': 'PGRST301', 'hint': None, 'details': None}
+2025-08-25T20:10:17.858253-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:10:17.858531-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:10:17.858695-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T20:10:17.858814-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T20:10:17.861551-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:10:17.861660-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:10:17.861762-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T20:10:17.861849-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T20:10:17.864013-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:10:17.864117-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:10:17.864236-0700 | ERROR | ❌ Error saving the recipe: Foreign key constraint violation: user_id not found
+2025-08-25T20:10:17.864315-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T20:10:17.865938-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:10:17.866066-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:10:17.866159-0700 | ERROR | ❌ Error saving the recipe: Invalid JWT token
+2025-08-25T20:10:17.866248-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T20:10:17.869181-0700 | INFO | === GET /users ENDPOINT CALLED ===
+2025-08-25T20:10:17.873820-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:10:18.341530-0700 | ERROR | ❌ <class 'postgrest.exceptions.APIError'>: {'message': 'Expected 3 parts in JWT; got 1', 'code': 'PGRST301', 'hint': None, 'details': None}
+2025-08-25T20:16:13.590423-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:16:13.590684-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:16:13.590893-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T20:16:13.590969-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T20:16:13.593603-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:16:13.593741-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:16:13.593883-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T20:16:13.593969-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T20:16:13.596239-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:16:13.596349-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:16:13.596508-0700 | ERROR | ❌ Error saving the recipe: Foreign key constraint violation: user_id not found
+2025-08-25T20:16:13.596574-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T20:16:13.598317-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:16:13.598535-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:16:13.598684-0700 | ERROR | ❌ Error saving the recipe: Invalid JWT token
+2025-08-25T20:16:13.598780-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T20:16:13.601511-0700 | INFO | === GET /users ENDPOINT CALLED ===
+2025-08-25T20:16:13.601621-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:16:13.601772-0700 | INFO | Response data: [{'id': 1, 'cognito_id': 'user-123', 'username': 'testuser'}, {'id': 2, 'cognito_id': 'user-456', 'username': 'anotheruser'}]
+2025-08-25T20:17:14.293999-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:17:14.294407-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:17:14.294776-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T20:17:14.294952-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T20:17:14.299190-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:17:14.299371-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:17:14.299496-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T20:17:14.299597-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T20:17:14.302282-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:17:14.302428-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:17:14.302631-0700 | ERROR | ❌ Error saving the recipe: Foreign key constraint violation: user_id not found
+2025-08-25T20:17:14.302736-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T20:17:14.305300-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:17:14.305458-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:17:14.305539-0700 | ERROR | ❌ Error saving the recipe: Invalid JWT token
+2025-08-25T20:17:14.305629-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T20:17:14.308832-0700 | INFO | === GET /users ENDPOINT CALLED ===
+2025-08-25T20:17:14.308981-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:17:14.309128-0700 | INFO | Response data: [{'id': 1, 'cognito_id': 'user-123', 'username': 'testuser'}, {'id': 2, 'cognito_id': 'user-456', 'username': 'anotheruser'}]
+2025-08-25T20:30:51.455544-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:30:51.455842-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:30:51.456070-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T20:30:51.456143-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T20:30:51.459075-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:30:51.459220-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:30:51.459360-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T20:30:51.459427-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T20:30:51.462043-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:30:51.462238-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:30:51.462476-0700 | ERROR | ❌ Error saving the recipe: Foreign key constraint violation: user_id not found
+2025-08-25T20:30:51.462578-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T20:30:51.464720-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:30:51.464828-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:30:51.464940-0700 | ERROR | ❌ Error saving the recipe: Invalid JWT token
+2025-08-25T20:30:51.464996-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T20:30:51.467400-0700 | INFO | === GET /users ENDPOINT CALLED ===
+2025-08-25T20:30:51.467565-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:30:51.467751-0700 | INFO | Response data: [{'id': 1, 'cognito_id': 'user-123', 'username': 'testuser'}, {'id': 2, 'cognito_id': 'user-456', 'username': 'anotheruser'}]
+2025-08-25T20:45:30.611619-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:45:30.611891-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:45:30.612057-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T20:45:30.612183-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T20:45:30.615033-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:45:30.615177-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:45:30.615318-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T20:45:30.615379-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T20:45:30.617716-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:45:30.617825-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:45:30.617985-0700 | ERROR | ❌ Error saving the recipe: Foreign key constraint violation: user_id not found
+2025-08-25T20:45:30.618092-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T20:45:30.619740-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:45:30.619836-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:45:30.619943-0700 | ERROR | ❌ Error saving the recipe: Invalid JWT token
+2025-08-25T20:45:30.620022-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T20:45:30.622114-0700 | INFO | === GET /users ENDPOINT CALLED ===
+2025-08-25T20:45:30.622224-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:45:30.622335-0700 | INFO | Response data: [{'id': 1, 'cognito_id': 'user-123', 'username': 'testuser'}, {'id': 2, 'cognito_id': 'user-456', 'username': 'anotheruser'}]
+2025-08-25T20:45:30.627457-0700 | INFO | === CREATE USER ENDPOINT CALLED ===
+2025-08-25T20:45:30.627555-0700 | ERROR | ❌ Authorization failed
+2025-08-25T20:48:31.581041-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:48:31.581284-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:48:31.581495-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T20:48:31.581566-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T20:48:31.584602-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:48:31.584745-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:48:31.584848-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T20:48:31.584959-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T20:48:31.587459-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:48:31.587566-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:48:31.587722-0700 | ERROR | ❌ Error saving the recipe: Foreign key constraint violation: user_id not found
+2025-08-25T20:48:31.587811-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T20:48:31.589495-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:48:31.589581-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:48:31.589684-0700 | ERROR | ❌ Error saving the recipe: Invalid JWT token
+2025-08-25T20:48:31.589795-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T20:48:31.591925-0700 | INFO | === GET /users ENDPOINT CALLED ===
+2025-08-25T20:48:31.592015-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:48:31.592169-0700 | INFO | Response data: [{'id': 1, 'cognito_id': 'user-123', 'username': 'testuser'}, {'id': 2, 'cognito_id': 'user-456', 'username': 'anotheruser'}]
+2025-08-25T20:48:31.597800-0700 | INFO | === CREATE USER ENDPOINT CALLED ===
+2025-08-25T20:48:31.597913-0700 | ERROR | ❌ Authorization failed
+2025-08-25T20:48:55.028335-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:48:55.028604-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:48:55.028761-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T20:48:55.028831-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T20:48:55.031819-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:48:55.031991-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:48:55.032107-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T20:48:55.032173-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T20:48:55.034748-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:48:55.034884-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:48:55.035041-0700 | ERROR | ❌ Error saving the recipe: Foreign key constraint violation: user_id not found
+2025-08-25T20:48:55.035109-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T20:48:55.036834-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:48:55.036931-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:48:55.037029-0700 | ERROR | ❌ Error saving the recipe: Invalid JWT token
+2025-08-25T20:48:55.037146-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T20:48:55.039372-0700 | INFO | === GET /users ENDPOINT CALLED ===
+2025-08-25T20:48:55.039485-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:48:55.039597-0700 | INFO | Response data: [{'id': 1, 'cognito_id': 'user-123', 'username': 'testuser'}, {'id': 2, 'cognito_id': 'user-456', 'username': 'anotheruser'}]
+2025-08-25T20:48:55.044807-0700 | INFO | === CREATE USER ENDPOINT CALLED ===
+2025-08-25T20:48:55.044915-0700 | ERROR | ❌ Authorization failed
+2025-08-25T20:56:08.717036-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:56:08.717523-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:56:08.717747-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T20:56:08.717823-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T20:56:08.720561-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:56:08.720685-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:56:08.720809-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T20:56:08.720932-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T20:56:08.723209-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:56:08.723319-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:56:08.723483-0700 | ERROR | ❌ Error saving the recipe: Foreign key constraint violation: user_id not found
+2025-08-25T20:56:08.723547-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T20:56:08.725940-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:56:08.726051-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:56:08.726174-0700 | ERROR | ❌ Error saving the recipe: Invalid JWT token
+2025-08-25T20:56:08.726259-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T20:56:08.728421-0700 | INFO | === GET /users ENDPOINT CALLED ===
+2025-08-25T20:56:08.728522-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:56:08.728624-0700 | INFO | Response data: [{'id': 1, 'cognito_id': 'user-123', 'username': 'testuser'}, {'id': 2, 'cognito_id': 'user-456', 'username': 'anotheruser'}]
+2025-08-25T20:56:08.734457-0700 | INFO | === CREATE USER ENDPOINT CALLED ===
+2025-08-25T20:56:08.734576-0700 | ERROR | ❌ Authorization failed
+2025-08-25T20:56:08.766759-0700 | INFO | === CREATE USER ENDPOINT CALLED ===
+2025-08-25T20:56:08.766865-0700 | ERROR | ❌ Authorization failed
+2025-08-25T20:57:05.144711-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:57:05.144981-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:57:05.145157-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T20:57:05.145273-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T20:57:05.148169-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:57:05.148301-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:57:05.148406-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T20:57:05.148493-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T20:57:05.150822-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:57:05.150944-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:57:05.151069-0700 | ERROR | ❌ Error saving the recipe: Foreign key constraint violation: user_id not found
+2025-08-25T20:57:05.151164-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T20:57:05.152851-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T20:57:05.152937-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:57:05.153043-0700 | ERROR | ❌ Error saving the recipe: Invalid JWT token
+2025-08-25T20:57:05.153124-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T20:57:05.155253-0700 | INFO | === GET /users ENDPOINT CALLED ===
+2025-08-25T20:57:05.155346-0700 | INFO | ✅ Supabase client created
+2025-08-25T20:57:05.155446-0700 | INFO | Response data: [{'id': 1, 'cognito_id': 'user-123', 'username': 'testuser'}, {'id': 2, 'cognito_id': 'user-456', 'username': 'anotheruser'}]
+2025-08-25T20:57:05.160763-0700 | INFO | === CREATE USER ENDPOINT CALLED ===
+2025-08-25T20:57:05.160868-0700 | ERROR | ❌ Authorization failed
+2025-08-25T20:57:05.190312-0700 | INFO | === CREATE USER ENDPOINT CALLED ===
+2025-08-25T20:57:05.190435-0700 | ERROR | ❌ Authorization failed
+2025-08-25T21:01:50.738672-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T21:01:50.738972-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:01:50.739135-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T21:01:50.739252-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T21:01:50.742019-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T21:01:50.742155-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:01:50.742259-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T21:01:50.742351-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T21:01:50.745103-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T21:01:50.745295-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:01:50.745432-0700 | ERROR | ❌ Error saving the recipe: Foreign key constraint violation: user_id not found
+2025-08-25T21:01:50.745546-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T21:01:50.747728-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T21:01:50.747875-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:01:50.748013-0700 | ERROR | ❌ Error saving the recipe: Invalid JWT token
+2025-08-25T21:01:50.748081-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T21:01:50.750423-0700 | INFO | === GET /users ENDPOINT CALLED ===
+2025-08-25T21:01:50.750537-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:01:50.750649-0700 | INFO | Response data: [{'id': 1, 'cognito_id': 'user-123', 'username': 'testuser'}, {'id': 2, 'cognito_id': 'user-456', 'username': 'anotheruser'}]
+2025-08-25T21:01:50.762096-0700 | INFO | === CREATE USER ENDPOINT CALLED ===
+2025-08-25T21:01:50.762193-0700 | ERROR | ❌ Authorization failed
+2025-08-25T21:01:50.792840-0700 | INFO | === CREATE USER ENDPOINT CALLED ===
+2025-08-25T21:01:50.792959-0700 | ERROR | ❌ Authorization failed
+2025-08-25T21:03:01.086119-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T21:03:01.086614-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:03:01.086910-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T21:03:01.087001-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T21:03:01.090143-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T21:03:01.090351-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:03:01.090480-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T21:03:01.090590-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T21:03:01.096006-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T21:03:01.096300-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:03:01.096510-0700 | ERROR | ❌ Error saving the recipe: Foreign key constraint violation: user_id not found
+2025-08-25T21:03:01.096582-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T21:03:01.100044-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T21:03:01.100213-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:03:01.100300-0700 | ERROR | ❌ Error saving the recipe: Invalid JWT token
+2025-08-25T21:03:01.100421-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T21:03:01.103159-0700 | INFO | === GET /users ENDPOINT CALLED ===
+2025-08-25T21:03:01.103296-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:03:01.103409-0700 | INFO | Response data: [{'id': 1, 'cognito_id': 'user-123', 'username': 'testuser'}, {'id': 2, 'cognito_id': 'user-456', 'username': 'anotheruser'}]
+2025-08-25T21:03:01.109223-0700 | INFO | === CREATE USER ENDPOINT CALLED ===
+2025-08-25T21:03:01.109356-0700 | INFO | ✅ Authorization successful
+2025-08-25T21:03:01.109430-0700 | INFO | Attempting to insert user into Supabase...
+2025-08-25T21:03:02.506023-0700 | INFO | === CREATE USER ENDPOINT CALLED ===
+2025-08-25T21:03:02.506189-0700 | ERROR | ❌ Authorization failed
+2025-08-25T21:06:32.063541-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T21:06:32.063822-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:06:32.064030-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T21:06:32.064102-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T21:06:32.067327-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T21:06:32.067833-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:06:32.067953-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T21:06:32.068016-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T21:06:32.070434-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T21:06:32.070550-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:06:32.070678-0700 | ERROR | ❌ Error saving the recipe: Foreign key constraint violation: user_id not found
+2025-08-25T21:06:32.070771-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T21:06:32.072642-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T21:06:32.072822-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:06:32.072954-0700 | ERROR | ❌ Error saving the recipe: Invalid JWT token
+2025-08-25T21:06:32.073090-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T21:06:32.076810-0700 | INFO | === GET /users ENDPOINT CALLED ===
+2025-08-25T21:06:32.077028-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:06:32.077173-0700 | INFO | Response data: [{'id': 1, 'cognito_id': 'user-123', 'username': 'testuser'}, {'id': 2, 'cognito_id': 'user-456', 'username': 'anotheruser'}]
+2025-08-25T21:06:32.082781-0700 | INFO | === CREATE USER ENDPOINT CALLED ===
+2025-08-25T21:06:32.082972-0700 | INFO | ✅ Authorization successful
+2025-08-25T21:06:32.083117-0700 | INFO | Attempting to insert user into Supabase...
+2025-08-25T21:06:32.136758-0700 | INFO | === CREATE USER ENDPOINT CALLED ===
+2025-08-25T21:06:32.136897-0700 | ERROR | ❌ Authorization failed
+2025-08-25T21:07:31.111071-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T21:07:31.111345-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:07:31.111561-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T21:07:31.111641-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T21:07:31.115013-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T21:07:31.115196-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:07:31.115590-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T21:07:31.115917-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T21:07:31.119135-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T21:07:31.119265-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:07:31.119389-0700 | ERROR | ❌ Error saving the recipe: Foreign key constraint violation: user_id not found
+2025-08-25T21:07:31.119481-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T21:07:31.121543-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T21:07:31.121698-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:07:31.121790-0700 | ERROR | ❌ Error saving the recipe: Invalid JWT token
+2025-08-25T21:07:31.121885-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T21:07:31.124309-0700 | INFO | === GET /users ENDPOINT CALLED ===
+2025-08-25T21:07:31.124485-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:07:31.124606-0700 | INFO | Response data: [{'id': 1, 'cognito_id': 'user-123', 'username': 'testuser'}, {'id': 2, 'cognito_id': 'user-456', 'username': 'anotheruser'}]
+2025-08-25T21:07:31.130557-0700 | INFO | === CREATE USER ENDPOINT CALLED ===
+2025-08-25T21:07:31.130682-0700 | INFO | ✅ Authorization successful
+2025-08-25T21:07:31.130786-0700 | INFO | Attempting to insert user into Supabase...
+2025-08-25T21:07:31.132855-0700 | INFO | === CREATE USER ENDPOINT CALLED ===
+2025-08-25T21:07:31.132972-0700 | ERROR | ❌ Authorization failed
+2025-08-25T21:11:18.633162-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T21:11:18.633499-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:11:18.633725-0700 | INFO | ✅ User created successfully: {'id': 1}
+2025-08-25T21:11:18.633801-0700 | INFO | ✅ Data received successfully: {'name': 'Test Recipe', 'preparation': [{'text': 'Step 1'}, {'text': 'Step 2'}], 'ingredients': [{'name': 'ingredient 1', 'amount': '6 oz'}, {'name': 'ingredient 2', 'amount': '1 bag'}], 'totalTime': '30 minutes', 'type': 'entree', 'cuisine': 'Italian'}
+2025-08-25T21:11:18.636620-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T21:11:18.636762-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:11:18.636874-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T21:11:18.636965-0700 | ERROR | Error type: <class 'KeyError'>
+2025-08-25T21:11:18.639180-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T21:11:18.639286-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:11:18.639434-0700 | ERROR | ❌ Error saving the recipe: Foreign key constraint violation: user_id not found
+2025-08-25T21:11:18.639500-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T21:11:18.641154-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T21:11:18.641248-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:11:18.641317-0700 | ERROR | ❌ Error saving the recipe: Invalid JWT token
+2025-08-25T21:11:18.641392-0700 | ERROR | Error type: <class 'Exception'>
+2025-08-25T21:11:18.643435-0700 | INFO | === GET /users ENDPOINT CALLED ===
+2025-08-25T21:11:18.643532-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:11:18.643632-0700 | INFO | Response data: [{'id': 1, 'cognito_id': 'user-123', 'username': 'testuser'}, {'id': 2, 'cognito_id': 'user-456', 'username': 'anotheruser'}]
+2025-08-25T21:11:18.649438-0700 | INFO | === CREATE USER ENDPOINT CALLED ===
+2025-08-25T21:11:18.649559-0700 | INFO | ✅ Authorization successful
+2025-08-25T21:11:18.649625-0700 | INFO | Attempting to insert user into Supabase...
+2025-08-25T21:11:18.651282-0700 | INFO | === CREATE USER ENDPOINT CALLED ===
+2025-08-25T21:11:18.651395-0700 | ERROR | ❌ Authorization failed
+2025-08-25T21:11:29.605884-0700 | INFO | === POST /create-recipe endpoint called ===
+2025-08-25T21:11:29.606306-0700 | INFO | ✅ Supabase client created
+2025-08-25T21:11:29.606533-0700 | ERROR | ❌ Error saving the recipe: 'totalTime'
+2025-08-25T21:11:29.606634-0700 | ERROR | Error type: <class 'KeyError'>

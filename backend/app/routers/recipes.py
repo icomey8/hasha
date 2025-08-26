@@ -1,7 +1,6 @@
 from fastapi import APIRouter, Header, HTTPException, status, Request, Depends
 from typing import List
 from supabase import create_client, ClientOptions
-from ..models.User import User
 from ..dependencies import auth_dependency
 from ..auth.auth import extract_token
 from dotenv import load_dotenv
@@ -21,11 +20,11 @@ async def create_recipe(request: Request, user = Depends(auth_dependency), token
     logger.info("=== POST /create-recipe endpoint called ===")
     
     body = await request.json()
-    client = create_client(supabase_key=anon_key, supabase_url=url, options=ClientOptions(headers={"Authorization": f"Bearer {token}"}))
     logger.info("✅ Supabase client created")
     user_id = user.get("sub")
     
     try: 
+        client = create_client(supabase_key=anon_key, supabase_url=url, options=ClientOptions(headers={"Authorization": f"Bearer {token}"}))
         result = client.table("recipes").insert({
                 "name": body["name"],
                 "preparation": body["preparation"],
@@ -33,7 +32,7 @@ async def create_recipe(request: Request, user = Depends(auth_dependency), token
                 "user_id": user_id,
                 "metadata": {
                     "total_time": body["totalTime"],
-                    "type": body["type"],  # Changed from "entree" to "type"
+                    "type": body["type"], 
                     "cuisine": body["cuisine"]
                 }
             }
@@ -41,7 +40,7 @@ async def create_recipe(request: Request, user = Depends(auth_dependency), token
         
         logger.info(f"✅ User created successfully: {result.data}")
         logger.info(f"✅ Data received successfully: {body}")
-        return {"status": "success", "recipe": body}
+        return {"status": "success"}
         
     except Exception as e:
         logger.error(f"❌ Error saving the recipe: {str(e)}")

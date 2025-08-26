@@ -54,7 +54,7 @@ export class InfraStack extends cdk.Stack {
 			accessTokenValidity: cdk.Duration.hours(1),
 			idTokenValidity: cdk.Duration.hours(1),
 			refreshTokenValidity: cdk.Duration.days(30),
-			preventUserExistenceErrors: true,
+			preventUserExistenceErrors: false,
 		});
 
 		const identityPool = new cognito.CfnIdentityPool(
@@ -73,14 +73,18 @@ export class InfraStack extends cdk.Stack {
 		);
 
 		const authenticatedRole = new iam.Role(this, "CognitoAuthenticatedRole", {
-			assumedBy: new iam.FederatedPrincipal("cognito-identity.amazonaws.com", {
-				StringEquals: {
-					"cognito-identity.amazonaws.com:aud": identityPool.ref,
+			assumedBy: new iam.FederatedPrincipal(
+				"cognito-identity.amazonaws.com",
+				{
+					StringEquals: {
+						"cognito-identity.amazonaws.com:aud": identityPool.ref,
+					},
+					"ForAnyValue:StringLike": {
+						"cognito-identity.amazonaws.com:amr": "authenticated",
+					},
 				},
-				"ForAnyValue:StringLike": {
-					"cognito-identity.amazonaws.com:amr": "authenticated",
-				},
-			}, "sts:AssumeRoleWithWebIdentity"),
+				"sts:AssumeRoleWithWebIdentity"
+			),
 		});
 
 		authenticatedRole.addToPolicy(

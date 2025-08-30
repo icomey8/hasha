@@ -22,22 +22,18 @@ const Recipe = ({
 		<Dialog>
 			<DialogTrigger asChild>
 				<div
-					className="relative aspect-[3/1] rounded-xl overflow-hidden cursor-pointer bg-white border border-gray-200 hover:border-gray-300 transition-colors duration-200"
+					className="relative aspect-[3/1] rounded-xl overflow-hidden cursor-pointer border bg-[#f3f3f3] hover:border-gray-300 transition-colors duration-200"
 					// onMouseEnter={() => setIsHover(true)}
 					// onMouseLeave={() => setIsHover(false)}
 				>
 					<div className="flex items-center h-full p-4">
-						<div className="flex-shrink-0 w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center border border-gray-200">
+						<div className="flex-shrink-0 w-16 h-16  rounded-lg flex items-center justify-center border border-gray-200">
 							<span className="text-2xl">👨‍🍳</span>
 						</div>
 
 						<div className="flex-1 ml-4 flex flex-col justify-center min-w-0">
-							<h3 className="text-lg font-semibold text-gray-800 truncate">
-								{name}
-							</h3>
-							<p className="text-sm text-gray-500 mt-1 truncate">
-								{description}
-							</p>
+							<h3 className="text-lg font-semibold truncate">{name}</h3>
+							<p className="text-sm  mt-1 truncate">{description}</p>
 						</div>
 					</div>
 				</div>
@@ -61,18 +57,18 @@ const Recipe = ({
 								ingredients.map((ingredient, index) => (
 									<div
 										key={index}
-										className="flex justify-between items-center py-1 border-b border-gray-100 gap-3"
+										className="flex justify-between items-center py-1 border-b  gap-3"
 									>
 										<span className="text-sm flex-1 break-words">
 											{ingredient.name}
 										</span>
-										<span className="text-sm text-gray-500 flex-shrink-0">
+										<span className="text-sm  flex-shrink-0">
 											{ingredient.amount}
 										</span>
 									</div>
 								))
 							) : (
-								<p className="text-gray-500 text-sm">No ingredients listed</p>
+								<p className="text-sm">No ingredients listed</p>
 							)}
 						</div>
 					</div>
@@ -87,15 +83,11 @@ const Recipe = ({
 										<div className="flex-shrink-0 w-5 h-5 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-semibold">
 											{index + 1}
 										</div>
-										<p className="text-sm text-gray-700 leading-relaxed">
-											{step.text}
-										</p>
+										<p className="text-sm  leading-relaxed">{step.text}</p>
 									</div>
 								))
 							) : (
-								<p className="text-gray-500 text-sm">
-									No instructions provided
-								</p>
+								<p className=" text-sm">No instructions provided</p>
 							)}
 						</div>
 					</div>

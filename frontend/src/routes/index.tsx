@@ -11,8 +11,7 @@ import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import NewRecipeButton from "@/components/home/NewRecipeButton";
 import Recipe from "@/components/recipe-item";
 import { type RecipeType } from "@/types/recipe";
-import { useMutation } from "@tanstack/react-query";
-// import { supabase } from "@/lib/supabase";
+import { useMutation, useQuery } from "@tanstack/react-query";
 
 export const Route = createFileRoute("/")({
 	component: RouteComponent,
@@ -29,79 +28,32 @@ function RouteComponent() {
 	});
 	const router = useRouter();
 
-	const [recipes, setRecipes] = useState([
-		{
-			id: 2,
-			image:
-				"https://cdn.cosmos.so/0ea26e1b-6e2c-4a85-836f-9048027b7a0f?format=jpeg",
-			name: "Mom's Spaghetti & Meatballs",
-			description: "Entree • Italian • 30 mins",
-			ingredients: [
-				{ name: "Pasta", amount: "1 lb" },
-				{ name: "Tomatoes", amount: "2 cups" },
-				{
-					name: "Large garlic cloves, crushed but left whole",
-					amount: "4 cloves",
-				},
-				{
-					name: "Pecorino Romano or Parmesan",
-					amount: "4 oz",
-				},
-			],
-			preparation: [
-				{ text: "Bring a large pot of salted water to a boil." },
-				{
-					text: "Heat a large, high-sided skillet over medium-high. Add the oil and bacon and cook, stirring occasionally, until the bacon is crispy at the edges, about 5 minutes. Carefully drain all but 3 tablespoons of the fat, reserving any excess for later.",
-				},
-				{
-					text: "Lower the heat to medium. Stir in the red-pepper flakes, oregano and garlic and cook, stirring constantly, until fragrant, just a few seconds. Add the onion, season generously with salt and pepper and cook over medium-high, stirring, until the onion is translucent, about 5 minutes. Add more bacon fat if the pan dries out. Add the tomato paste and stir constantly until slightly darker in color, about 3 minutes. Turn off the heat and stir in the vodka.",
-				},
-				{
-					text: "Lower the heat to medium. Stir in the red-pepper flakes, oregano and garlic and cook, stirring constantly, until fragrant, just a few seconds. Add the onion, season generously with salt and pepper and cook over medium-high, stirring, until the onion is translucent, about 5 minutes. Add more bacon fat if the pan dries out. Add the tomato paste and stir constantly until slightly darker in color, about 3 minutes. Turn off the heat and stir in the vodka.",
-				},
-			],
-			totalTime: "30",
-			type: "Entree",
-			cuisine: "Italian",
-		},
-		{
-			id: 3,
-			image:
-				"https://cdn.cosmos.so/0ea26e1b-6e2c-4a85-836f-9048027b7a0f?format=jpeg",
-			name: "Another Recipe",
-			description: "Dessert • American • 45 mins",
-		},
-		{
-			id: 4,
-			image:
-				"https://cdn.cosmos.so/0ea26e1b-6e2c-4a85-836f-9048027b7a0f?format=jpeg",
-			name: "Third Recipe",
-			description: "Appetizer • Mexican • 15 mins",
-		},
-		{
-			id: 5,
-			image:
-				"https://cdn.cosmos.so/0ea26e1b-6e2c-4a85-836f-9048027b7a0f?format=jpeg",
-			name: "Fourth Recipe",
-			description: "Side • Chinese • 20 mins",
-		},
-	]);
+	const [recipes, setRecipes] = useState<RecipeType[]>([]);
 
 	const mutation = useMutation({
-		mutationFn: (newRecipe: RecipeType) => {
+		mutationFn: async (newRecipe: RecipeType) => {
 			if (!idToken) {
 				throw new Error("User is not authenticated");
 			}
 
-			// return fetch("http://0.0.0.0:80/recipes/create-recipe", {
-			return fetch("https://hasha.onrender.com/recipes/create-recipe", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-					Authorization: `Bearer ${idToken}`,
-				},
-				body: JSON.stringify(newRecipe),
-			});
+			const response = await fetch(
+				// "http://0.0.0.0:80/recipes/create-recipe",
+				"https://hasha.onrender.com/recipes/create-recipe",
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: `Bearer ${idToken}`,
+					},
+					body: JSON.stringify(newRecipe),
+				}
+			);
+
+			if (!response.ok) {
+				throw new Error("Failed to create recipe");
+			}
+
+			return response.json();
 		},
 		onSuccess: (data) => {
 			console.log("✅ Recipe created successfully:", data);
@@ -113,6 +65,10 @@ function RouteComponent() {
 	});
 
 	const handleRecipeCreate = (newRecipeData: RecipeType) => {
+		if (!idToken) {
+			throw new Error("User is not authenticated");
+		}
+
 		const newRecipe = {
 			id: Date.now(),
 			image:
@@ -129,10 +85,6 @@ function RouteComponent() {
 		setRecipes((prev) => [...prev, newRecipe]);
 		console.log("The recipe is: ", newRecipe);
 
-		if (!idToken) {
-			throw new Error("User is not authenticated");
-		}
-
 		console.log("the recipe is being sent to the backend");
 		mutation.mutate(newRecipe);
 	};
@@ -145,6 +97,47 @@ function RouteComponent() {
 		await signOutUser();
 		router.invalidate();
 	};
+
+	const getUserRecipes = useQuery({
+		queryKey: ["getUserRecipes"],
+		queryFn: async () => {
+			if (!idToken) {
+				throw new Error("User is not authenticated");
+			}
+
+			const response = await fetch("http://0.0.0.0:80/recipes", {
+				headers: { Authorization: `Bearer ${idToken}` },
+			});
+			// const response = await fetch("https://hasha.onrender.com/recipes", {
+			// 	headers: { Authorization: `Bearer ${idToken}` },
+			// });
+
+			if (!response.ok) {
+				throw new Error("Failed to fetch recipes");
+			}
+
+			return response.json();
+		},
+		enabled: !!idToken,
+	});
+
+	const displayRecipes = getUserRecipes.data || recipes;
+
+	if (getUserRecipes.isPending) {
+		return (
+			<div className="w-screen h-screen flex items-center justify-center">
+				<span>Loading recipes...</span>
+			</div>
+		);
+	}
+
+	if (getUserRecipes.error) {
+		return (
+			<div className="w-screen h-screen flex items-center justify-center">
+				<span>Error loading recipes: {getUserRecipes.error.message}</span>
+			</div>
+		);
+	}
 
 	return (
 		<div className="w-screen h-screen p-8 py-4 flex flex-col">
@@ -189,17 +182,16 @@ function RouteComponent() {
 
 			<div className="flex-1 overflow-auto border-t mt-4 p-4 ">
 				<div className="grid grid-cols-4 gap-4 auto-rows-min">
-					{recipes.map((recipe) => (
+					{displayRecipes.map((recipe) => (
 						<Recipe
-							key={recipe.id}
-							image={recipe.image}
+							key={recipe.user_id}
 							name={recipe.name}
-							description={recipe.description}
+							description={"nothing"}
 							ingredients={recipe.ingredients}
 							preparation={recipe.preparation}
-							totalTime={recipe.totalTime}
-							type={recipe.type}
-							cuisine={recipe.cuisine}
+							totalTime={recipe.metadata.totalTime}
+							type={recipe.metadata.type}
+							cuisine={recipe.metadata.cuisine}
 						/>
 					))}
 				</div>

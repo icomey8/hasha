@@ -46,7 +46,7 @@ const NewRecipeButton = ({
 			}}
 		>
 			<DialogTrigger
-				className="flex border items-center text-sm rounded-2xl p-1 px-2 cursor-pointer gap-1.5 hover:bg-accent"
+				className="flex border border-gray-300 items-center text-sm rounded-2xl p-1 px-2 cursor-pointer gap-1.5"
 				onClick={() => setIsOpen(true)}
 			>
 				<Plus size={16} /> New

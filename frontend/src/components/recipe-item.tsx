@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import {
 	Dialog,
 	DialogTrigger,
@@ -8,43 +7,110 @@ import {
 	DialogTitle,
 } from "./ui/dialog";
 import { type RecipeType } from "@/types/recipe";
+import { Pencil, Ellipsis } from "lucide-react";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
+import { Badge } from "./ui/badge";
+import { type SVGProps, useState } from "react";
+import type { JSX } from "react/jsx-runtime";
+
+const BowlRiceIcon = (
+	props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width={24}
+		height={24}
+		fill={"currentColor"}
+		viewBox="0 0 24 24"
+		{...props}
+	>
+		{/* Boxicons v3.0 https://boxicons.com | License  https://docs.boxicons.com/free */}
+		<path d="M7 19.66V21c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1.34c3.1-1.78 5-5.05 5-8.66 0-.55-.45-1-1-1a3.58 3.58 0 0 0-1.8-2.99c-.24-1.77-1.78-3.13-3.63-3.13-.34 0-.68.05-1.01.14-.68-.65-1.58-1.01-2.54-1.01s-1.87.37-2.54 1.01c-.33-.09-.67-.14-1.01-.14H8.4c-1.82.04-3.32 1.39-3.56 3.13A3.59 3.59 0 0 0 3.04 10c-.55 0-1 .45-1 1 0 3.61 1.9 6.87 5 8.66ZM6.11 8.61l.83-.25-.16-.85c0-.88.73-1.6 1.63-1.62.95.02 1.72.79 1.72 1.75h2c0-.93-.35-1.77-.92-2.43.24-.13.51-.2.79-.2.57 0 1.1.28 1.42.76l.51.77.81-.44c.25-.14.53-.21.83-.21.92 0 1.67.73 1.67 1.6l-.16.85.82.28c.62.21 1.03.76 1.09 1.39H5.02c.05-.63.47-1.19 1.09-1.39Z"></path>
+	</svg>
+);
 
 const Recipe = ({
 	name = "Untitled Recipe",
-	description = "No description",
 	ingredients = [],
 	preparation = [],
 	totalTime = "",
 	type = "",
 	cuisine = "",
 }: RecipeType) => {
+	const [isOpen, setIsOpen] = useState(false);
+
+	const handleDoubleClick = () => {
+		setIsOpen(true);
+	};
+
+	const handleSingleClick = (e: React.MouseEvent) => {
+		// Prevent dialog from opening on single click
+		e.preventDefault();
+		e.stopPropagation();
+	};
+
 	return (
-		<Dialog>
+		<Dialog open={isOpen} onOpenChange={setIsOpen}>
 			<DialogTrigger asChild>
 				<div
-					className="relative aspect-[3/1] rounded-xl overflow-hidden cursor-pointer border bg-[#f3f3f3] hover:border-gray-300 transition-colors duration-200"
-					// onMouseEnter={() => setIsHover(true)}
-					// onMouseLeave={() => setIsHover(false)}
+					onDoubleClick={handleDoubleClick}
+					onClick={handleSingleClick}
+					className="relative aspect-[3/1] rounded-xl overflow-hidden border bg-[#f3f3f3] hover:border-gray-300 transition-colors duration-200"
 				>
 					<div className="flex items-center h-full p-4">
 						<div className="flex-shrink-0 w-16 h-16  rounded-lg flex items-center justify-center border border-gray-200">
-							<span className="text-2xl">👨‍🍳</span>
+							<BowlRiceIcon />
 						</div>
 
-						<div className="flex-1 ml-4 flex flex-col justify-center min-w-0">
-							<h3 className="text-lg font-semibold truncate">{name}</h3>
-							<p className="text-sm  mt-1 truncate">{description}</p>
+						<div className="flex-1 ml-4 flex flex-col h-full justify-center min-w-0">
+							<div className="flex items-center justify-between">
+								<h3 className="text-lg font-semibold truncate">{name}</h3>
+								<DropdownMenu>
+									<DropdownMenuTrigger>
+										<Ellipsis size={14} className="cursor-pointer" />
+									</DropdownMenuTrigger>
+									<DropdownMenuContent>
+										<DropdownMenuItem>Edit</DropdownMenuItem>
+										<DropdownMenuItem>Delete</DropdownMenuItem>
+									</DropdownMenuContent>
+								</DropdownMenu>
+							</div>
+							<div className="flex gap-2 mt-3">
+								<Badge
+									variant={"outline"}
+									className="text-xs h-4.5 text-[#978275]"
+								>
+									{type}
+								</Badge>
+								<Badge
+									variant={"outline"}
+									className="text-xs h-4.5 text-[#978275]"
+								>
+									{cuisine}
+								</Badge>
+								<Badge
+									variant={"outline"}
+									className="text-xs h-4.5 text-[#978275]"
+								>
+									{`${totalTime} min`}
+								</Badge>
+							</div>
 						</div>
 					</div>
 				</div>
 			</DialogTrigger>
 			<DialogContent className="!max-w-4xl !w-full min-w-[500px]">
 				<DialogHeader>
-					<DialogTitle className="text-2xl font-semibold">{name}</DialogTitle>
+					<DialogTitle className="flex items-center gap-2 text-2xl font-semibold">
+						{name} <Pencil size={14} className="cursor-pointer" />
+					</DialogTitle>
 					<DialogDescription>
-						{type && cuisine && totalTime
-							? `${type} • ${cuisine} • ${totalTime} mins`
-							: description}
+						{`${type} • ${cuisine} • ${totalTime} mins`}
 					</DialogDescription>
 				</DialogHeader>
 

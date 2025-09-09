@@ -1,11 +1,10 @@
-from fastapi import APIRouter, Header, HTTPException, status, Request, Depends
-from typing import List
+from fastapi import APIRouter, HTTPException, status, Request, Depends
 from supabase import create_client, ClientOptions
 from ..dependencies import auth_dependency
 from ..auth.auth import extract_token
 from dotenv import load_dotenv
 from loguru import logger
-import os, sys
+import os
 
 router = APIRouter(
     prefix="/recipes"
@@ -37,7 +36,7 @@ async def get_user_recipes(user=Depends(auth_dependency), token=Depends(extract_
         )
         logger.info("✅ Supabase client created")
         
-        response = client.from_("recipes").select("*").eq("user_id", user_id).execute()
+        response = client.from_("recipes").select("*").execute()
         
         if response.data is None:
             logger.info(f"No recipes found for user {user_id}")
@@ -63,7 +62,6 @@ async def create_recipe(request: Request, user = Depends(auth_dependency), token
     
     body = await request.json()    
     user_id = user.get("sub")
-    
     if not user_id:
         logger.error("❌ No user_id found in token")
         raise HTTPException(
@@ -71,11 +69,10 @@ async def create_recipe(request: Request, user = Depends(auth_dependency), token
             detail="Invalid user token"
         )
     
-    logger.info(f"user sub is found as {user_id}")
-    logger.info("✅ Supabase client created")
     
     try: 
         client = create_client(supabase_key=anon_key, supabase_url=url, options=ClientOptions(headers={"Authorization": f"Bearer {token}"}))
+        logger.info("✅ Supabase client created")
         
         recipe_data = {
             "name": body["name"],
@@ -89,13 +86,9 @@ async def create_recipe(request: Request, user = Depends(auth_dependency), token
             }
         }
         
-        logger.info(f"🔍 About to insert recipe with user_id: {user_id}")
-        logger.info(f"🔍 Full recipe data: {recipe_data}")
-        
-        result = client.table("recipes").insert(recipe_data).execute()
-        
-        logger.info(f"✅ Recipe created successfully: {result.data}")
-        logger.info(f"✅ Data received successfully: {body}")
+        client.table("recipes").insert(recipe_data).execute()
+        logger.info(f"✅ Recipe created successfully")
+        logger.info(f"✅ Data received successfully")
         return {"status": "success"}
         
     except Exception as e:

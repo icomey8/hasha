@@ -1,18 +1,28 @@
 import NewRecipeButton from "./home/NewRecipeButton";
 import type { RecipeType } from "@/types/recipe";
 import { Link } from "@tanstack/react-router";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { Avatar, AvatarFallback } from "./ui/avatar";
+import { Trash2, LogOut, LogIn } from "lucide-react";
+import {
+	DropdownMenu,
+	DropdownMenuTrigger,
+	DropdownMenuContent,
+	DropdownMenuGroup,
+	DropdownMenuItem,
+} from "./ui/dropdown-menu";
 
 type NavbarProps = {
 	handleRecipeCreate: (newRecipeData: RecipeType) => void;
 	isSignedIn: boolean;
 	handleSignOut: () => Promise<void>;
+	handleDeleteUser: () => Promise<void>;
 };
 
 const Navbar = ({
 	handleRecipeCreate,
 	isSignedIn,
 	handleSignOut,
+	handleDeleteUser,
 }: NavbarProps) => {
 	return (
 		<div className="flex justify-between items-center">
@@ -21,26 +31,39 @@ const Navbar = ({
 				<NewRecipeButton onRecipeCreate={handleRecipeCreate} />
 			</div>
 			<div className="flex items-center gap-4">
-				{isSignedIn ? (
-					<button
-						onClick={handleSignOut}
-						className="flex border border-gray-300 items-center text-sm rounded-2xl p-1 px-2 cursor-pointer gap-1.5 hover:bg-accent"
-					>
-						Sign Out
-					</button>
-				) : (
-					<Link
-						to="/login"
-						className="flex border items-center text-sm rounded-2xl p-1 px-2 cursor-pointer gap-1.5 hover:bg-accent"
-					>
-						Sign In
-					</Link>
-				)}
-
-				<Avatar>
-					<AvatarImage src="https://i.pinimg.com/1200x/bb/d8/7c/bbd87ca99b1849996d5d12f516f6cf94.jpg" />
-					<AvatarFallback>CN</AvatarFallback>
-				</Avatar>
+				<DropdownMenu>
+					<DropdownMenuTrigger asChild>
+						<div className="flex text-sm items-center gap-2 px-1 cursor-pointer">
+							<Avatar>
+								<AvatarFallback className="bg-foreground text-background">
+									U
+								</AvatarFallback>
+							</Avatar>
+						</div>
+					</DropdownMenuTrigger>
+					<DropdownMenuContent align="end">
+						<DropdownMenuGroup>
+							{isSignedIn ? (
+								<DropdownMenuItem onClick={handleSignOut}>
+									<LogOut />
+									Sign Out
+								</DropdownMenuItem>
+							) : (
+								<DropdownMenuItem>
+									<LogIn />
+									<Link to="/login">Sign In</Link>
+								</DropdownMenuItem>
+							)}
+							<DropdownMenuItem
+								className="text-red-600"
+								onClick={handleDeleteUser}
+							>
+								<Trash2 color="#fb2c36" />
+								Delete Account
+							</DropdownMenuItem>
+						</DropdownMenuGroup>
+					</DropdownMenuContent>
+				</DropdownMenu>
 			</div>
 		</div>
 	);

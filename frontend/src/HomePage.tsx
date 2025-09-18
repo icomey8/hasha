@@ -4,6 +4,8 @@ import { type RecipeType, type StoredRecipe } from "@/types/recipe";
 import { useCreateRecipe, useFetchRecipes } from "./lib/queries";
 import { Skeleton } from "@/components/ui/skeleton";
 import Navbar from "@/components/Navbar";
+import { deleteUser } from "aws-amplify/auth";
+import { toast } from "sonner";
 
 const HomePage = () => {
 	const { isSignedIn, signOutUser } = useRouteContext({
@@ -45,6 +47,16 @@ const HomePage = () => {
 		router.invalidate();
 	};
 
+	const handleDeleteUser = async () => {
+		try {
+			await deleteUser();
+			toast.success("Your account has been deleted.");
+			router.invalidate();
+		} catch (error) {
+			console.error("Error deleting user:", error);
+		}
+	};
+
 	const recipes = useFetchRecipes({ idToken: idToken || "" });
 	const addMutation = useCreateRecipe({ idToken: idToken || "" });
 
@@ -64,6 +76,7 @@ const HomePage = () => {
 				handleRecipeCreate={handleRecipeCreate}
 				isSignedIn={isSignedIn}
 				handleSignOut={handleSignOut}
+				handleDeleteUser={handleDeleteUser}
 			/>
 
 			<div className="flex-1 overflow-auto border-t mt-4 pt-4 ">

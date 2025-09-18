@@ -7,7 +7,7 @@ import {
 	DialogTitle,
 } from "./ui/dialog";
 import { type RecipeType } from "@/types/recipe";
-import { Pencil, Ellipsis } from "lucide-react";
+import { Ellipsis } from "lucide-react";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -118,7 +118,7 @@ const Recipe = ({
 			<DialogContent className="!max-w-4xl !w-full min-w-[500px]">
 				<DialogHeader>
 					<DialogTitle className="flex items-center gap-2 text-2xl font-semibold">
-						{name} <Pencil size={14} className="cursor-pointer" />
+						{name}
 					</DialogTitle>
 					<DialogDescription>
 						{`${type} • ${cuisine} • ${totalTime} mins`}

@@ -1,54 +1,8 @@
-2025-09-09T23:09:23.125239+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-09-09T23:09:23.620074+0000 | INFO | Successfully fetched JWKS with 2 keys
-2025-09-09T23:09:23.622591+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-09-09T23:09:23.653328+0000 | INFO | Successfully validated token for user: b4d8b468-d061-708f-1218-e24a0b5f1b4a
-2025-09-09T23:09:23.653635+0000 | INFO | Authentication successful for user: b4d8b468-d061-708f-1218-e24a0b5f1b4a
-2025-09-09T23:09:23.654316+0000 | INFO | === GET /recipes endpoint called ===
-2025-09-09T23:09:23.654481+0000 | INFO | user sub is found as b4d8b468-d061-708f-1218-e24a0b5f1b4a
-2025-09-09T23:09:23.666868+0000 | INFO | ✅ Supabase client created
-2025-09-09T23:09:25.237967+0000 | INFO | ✅ Found 5 recipes for user b4d8b468-d061-708f-1218-e24a0b5f1b4a
-2025-09-09T23:18:39.164984+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-09-09T23:18:40.556645+0000 | INFO | Successfully fetched JWKS with 2 keys
-2025-09-09T23:18:40.560748+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-09-09T23:18:40.683874+0000 | INFO | Successfully validated token for user: b4d8b468-d061-708f-1218-e24a0b5f1b4a
-2025-09-09T23:18:40.691509+0000 | INFO | Authentication successful for user: b4d8b468-d061-708f-1218-e24a0b5f1b4a
-2025-09-09T23:18:40.696124+0000 | INFO | === GET /recipes endpoint called ===
-2025-09-09T23:18:40.696400+0000 | INFO | user sub is found as b4d8b468-d061-708f-1218-e24a0b5f1b4a
-2025-09-09T23:18:40.758499+0000 | INFO | ✅ Supabase client created
-2025-09-09T23:18:41.556033+0000 | INFO | ✅ Found 5 recipes for user b4d8b468-d061-708f-1218-e24a0b5f1b4a
-2025-09-09T23:19:33.212713+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-09-09T23:19:33.758155+0000 | INFO | Successfully fetched JWKS with 2 keys
-2025-09-09T23:19:33.763626+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-09-09T23:19:33.773343+0000 | INFO | Successfully validated token for user: b4d8b468-d061-708f-1218-e24a0b5f1b4a
-2025-09-09T23:19:33.774607+0000 | INFO | Authentication successful for user: b4d8b468-d061-708f-1218-e24a0b5f1b4a
-2025-09-09T23:19:33.775972+0000 | INFO | === GET /recipes endpoint called ===
-2025-09-09T23:19:33.776498+0000 | INFO | user sub is found as b4d8b468-d061-708f-1218-e24a0b5f1b4a
-2025-09-09T23:19:33.808970+0000 | INFO | ✅ Supabase client created
-2025-09-09T23:19:34.375502+0000 | INFO | ✅ Found 5 recipes for user b4d8b468-d061-708f-1218-e24a0b5f1b4a
-2025-09-09T23:19:34.848799+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-09-09T23:19:35.160740+0000 | INFO | Successfully fetched JWKS with 2 keys
-2025-09-09T23:19:35.165437+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-09-09T23:19:35.166777+0000 | INFO | Successfully validated token for user: b4d8b468-d061-708f-1218-e24a0b5f1b4a
-2025-09-09T23:19:35.167500+0000 | INFO | Authentication successful for user: b4d8b468-d061-708f-1218-e24a0b5f1b4a
-2025-09-09T23:19:35.168499+0000 | INFO | === GET /recipes endpoint called ===
-2025-09-09T23:19:35.168877+0000 | INFO | user sub is found as b4d8b468-d061-708f-1218-e24a0b5f1b4a
-2025-09-09T23:19:35.189297+0000 | INFO | ✅ Supabase client created
-2025-09-09T23:19:35.706604+0000 | INFO | ✅ Found 5 recipes for user b4d8b468-d061-708f-1218-e24a0b5f1b4a
-2025-09-09T23:19:36.867098+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-09-09T23:19:37.169240+0000 | INFO | Successfully fetched JWKS with 2 keys
-2025-09-09T23:19:37.172680+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-09-09T23:19:37.176685+0000 | INFO | Successfully validated token for user: b4d8b468-d061-708f-1218-e24a0b5f1b4a
-2025-09-09T23:19:37.176982+0000 | INFO | Authentication successful for user: b4d8b468-d061-708f-1218-e24a0b5f1b4a
-2025-09-09T23:19:37.177337+0000 | INFO | === GET /recipes endpoint called ===
-2025-09-09T23:19:37.177515+0000 | INFO | user sub is found as b4d8b468-d061-708f-1218-e24a0b5f1b4a
-2025-09-09T23:19:37.193844+0000 | INFO | ✅ Supabase client created
-2025-09-09T23:19:37.642759+0000 | INFO | ✅ Found 5 recipes for user b4d8b468-d061-708f-1218-e24a0b5f1b4a
-2025-09-09T23:19:59.991876+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-09-09T23:20:00.404441+0000 | INFO | Successfully fetched JWKS with 2 keys
-2025-09-09T23:20:00.408472+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
-2025-09-09T23:20:00.417092+0000 | INFO | Successfully validated token for user: b4d8b468-d061-708f-1218-e24a0b5f1b4a
-2025-09-09T23:20:00.417874+0000 | INFO | Authentication successful for user: b4d8b468-d061-708f-1218-e24a0b5f1b4a
-2025-09-09T23:20:00.418678+0000 | INFO | === GET /recipes endpoint called ===
-2025-09-09T23:20:00.419196+0000 | INFO | user sub is found as b4d8b468-d061-708f-1218-e24a0b5f1b4a
-2025-09-09T23:20:00.441089+0000 | INFO | ✅ Supabase client created
-2025-09-09T23:20:00.941579+0000 | INFO | ✅ Found 5 recipes for user b4d8b468-d061-708f-1218-e24a0b5f1b4a
+2025-09-18T00:22:39.589842+0000 | DEBUG | Token kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-09-18T00:22:39.973661+0000 | INFO | Successfully fetched JWKS with 2 keys
+2025-09-18T00:22:39.975823+0000 | DEBUG | Found key with kid: yuC2WJZvmbwKXGMeDHovfMlRjW0rxja6mMRaTVR5F34=
+2025-09-18T00:22:39.984080+0000 | INFO | Successfully validated token for user: b4d8b468-d061-708f-1218-e24a0b5f1b4a
+2025-09-18T00:22:39.984361+0000 | INFO | Authentication successful for user: b4d8b468-d061-708f-1218-e24a0b5f1b4a
+2025-09-18T00:22:39.984891+0000 | INFO | === POST /create-recipe endpoint called ===
+2025-09-18T00:22:40.004541+0000 | INFO | ✅ Supabase client created
+2025-09-18T00:22:40.766598+0000 | INFO | ✅ Recipe deleted successfully

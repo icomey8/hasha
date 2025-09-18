@@ -148,7 +148,7 @@ const RecipeForm = ({ onSubmit, onClose }: RecipeFormProps) => {
 						className="gap-2 cursor-pointer"
 					>
 						<Plus className="w-4 h-4" />
-						Add Ingredient
+						Add
 					</Button>
 				</div>
 				<div className="space-y-3">
@@ -226,9 +226,6 @@ const RecipeForm = ({ onSubmit, onClose }: RecipeFormProps) => {
 				<div className="space-y-4">
 					{stepFields.map((field, index) => (
 						<div key={field.id} className="flex gap-2">
-							<div className="flex-shrink-0 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-semibold mt-1">
-								{index + 1}
-							</div>
 							<div className="flex-1">
 								<textarea
 									id={`step-${index}`}
@@ -337,32 +334,20 @@ const RecipeForm = ({ onSubmit, onClose }: RecipeFormProps) => {
 
 	return (
 		<form onSubmit={handleSubmit(onFormSubmit)} className="space-y-6">
-			<div className="text-center">
-				<h2 className="text-xl font-semibold mb-2">Step {currentStep} of 3</h2>
-				<p className="text-sm text-gray-500">
-					{currentStep === 1 &&
-						"Start by adding the recipe title and ingredients"}
-					{currentStep === 2 && "Add the cooking steps for your recipe"}
-					{currentStep === 3 && "Add final details like timing and categories"}
-				</p>
-			</div>
-
 			{/* Step Progress Indicator */}
-			<div className="flex justify-center space-x-2 mb-6">
-				{[1, 2, 3].map((step) => (
-					<div
-						key={step}
-						className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold ${
-							step === currentStep
-								? "bg-primary text-primary-foreground"
-								: step < currentStep
-									? "bg-green-500 text-white"
-									: "bg-gray-200 text-gray-500"
-						}`}
-					>
-						{step}
-					</div>
-				))}
+			<div className="flex space-x-2 mb-12 items-center gap-1">
+				<div
+					className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold bg-primary text-primary-foreground`}
+				>
+					{currentStep}
+				</div>
+				{currentStep === 1 ? (
+					<div className="text-xl">{"Ingredients"}</div>
+				) : currentStep === 2 ? (
+					<div className="text-xl">{"Steps"}</div>
+				) : currentStep === 3 ? (
+					<div className="text-xl">{"Cook Time"}</div>
+				) : null}
 			</div>
 
 			{/* Form Steps */}

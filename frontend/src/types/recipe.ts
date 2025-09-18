@@ -1,6 +1,7 @@
 export type RecipeType = {
 	image?: string;
 	name?: string;
+	id?: number;
 	description?: string;
 	ingredients?: { name: string; amount: string }[];
 	preparation?: { text: string }[];
@@ -11,6 +12,7 @@ export type RecipeType = {
 
 export type StoredRecipe = {
 	name?: string;
+	id: number;
 	user_id: string;
 	ingredients?: { name: string; amount: string }[];
 	preparation?: { text: string }[];

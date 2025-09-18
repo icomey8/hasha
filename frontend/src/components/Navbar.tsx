@@ -5,14 +5,12 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 type NavbarProps = {
 	handleRecipeCreate: (newRecipeData: RecipeType) => void;
-	resetDialog: () => void;
 	isSignedIn: boolean;
 	handleSignOut: () => Promise<void>;
 };
 
 const Navbar = ({
 	handleRecipeCreate,
-	resetDialog,
 	isSignedIn,
 	handleSignOut,
 }: NavbarProps) => {
@@ -20,10 +18,7 @@ const Navbar = ({
 		<div className="flex justify-between items-center">
 			<div className="flex items-center text-xl gap-6">
 				<h1>Hasha</h1>
-				<NewRecipeButton
-					onRecipeCreate={handleRecipeCreate}
-					resetDialog={resetDialog}
-				/>
+				<NewRecipeButton onRecipeCreate={handleRecipeCreate} />
 			</div>
 			<div className="flex items-center gap-4">
 				{isSignedIn ? (

@@ -17,6 +17,7 @@ import {
 import { Badge } from "./ui/badge";
 import { type SVGProps, useState } from "react";
 import type { JSX } from "react/jsx-runtime";
+import { useDeleteRecipe } from "@/lib/queries";
 
 const BowlRiceIcon = (
 	props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
@@ -34,14 +35,18 @@ const BowlRiceIcon = (
 	</svg>
 );
 
+type RecipeProps = RecipeType & { token: string };
+
 const Recipe = ({
 	name = "Untitled Recipe",
+	id = 0,
+	token = "",
 	ingredients = [],
 	preparation = [],
 	totalTime = "",
 	type = "",
 	cuisine = "",
-}: RecipeType) => {
+}: RecipeProps) => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const handleDoubleClick = () => {
@@ -54,13 +59,18 @@ const Recipe = ({
 		e.stopPropagation();
 	};
 
+	const deleteMutation = useDeleteRecipe({
+		idToken: token || "",
+		recipeId: id,
+	});
+
 	return (
 		<Dialog open={isOpen} onOpenChange={setIsOpen}>
 			<DialogTrigger asChild>
 				<div
 					onDoubleClick={handleDoubleClick}
 					onClick={handleSingleClick}
-					className="relative aspect-[3/1] rounded-xl overflow-hidden border bg-[#f3f3f3] hover:border-gray-300 transition-colors duration-200"
+					className="relative aspect-[3/1] rounded-xl overflow-hidden border bg-[#f3f3f3] hover:border-gray-300 transition-colors duration-200 select-none"
 				>
 					<div className="flex items-center h-full p-4">
 						<div className="flex-shrink-0 w-16 h-16  rounded-lg flex items-center justify-center border border-gray-200">
@@ -75,8 +85,9 @@ const Recipe = ({
 										<Ellipsis size={14} className="cursor-pointer" />
 									</DropdownMenuTrigger>
 									<DropdownMenuContent>
-										<DropdownMenuItem>Edit</DropdownMenuItem>
-										<DropdownMenuItem>Delete</DropdownMenuItem>
+										<DropdownMenuItem onClick={() => deleteMutation.mutate()}>
+											Delete
+										</DropdownMenuItem>
 									</DropdownMenuContent>
 								</DropdownMenu>
 							</div>

@@ -10,14 +10,10 @@ import RecipeForm from "./RecipeForm";
 import { type RecipeType } from "@/types/recipe";
 
 type NewRecipeButtonProps = {
-	resetDialog: () => void;
 	onRecipeCreate: (recipeData: RecipeType) => void;
 };
 
-const NewRecipeButton = ({
-	resetDialog,
-	onRecipeCreate,
-}: NewRecipeButtonProps) => {
+const NewRecipeButton = ({ onRecipeCreate }: NewRecipeButtonProps) => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const handleSubmit = (recipeData: RecipeType) => {
@@ -34,7 +30,6 @@ const NewRecipeButton = ({
 
 	const handleClose = () => {
 		setIsOpen(false);
-		resetDialog();
 	};
 
 	return (
@@ -42,7 +37,6 @@ const NewRecipeButton = ({
 			open={isOpen}
 			onOpenChange={(open) => {
 				setIsOpen(open);
-				if (!open) resetDialog();
 			}}
 		>
 			<DialogTrigger
@@ -52,7 +46,7 @@ const NewRecipeButton = ({
 				<Plus size={16} /> New
 			</DialogTrigger>
 			<DialogContent className="!max-w-3xl">
-				<DialogTitle>Create a New Recipe</DialogTitle>
+				<DialogTitle></DialogTitle>
 				<RecipeForm onSubmit={handleSubmit} onClose={handleClose} />
 			</DialogContent>
 		</Dialog>

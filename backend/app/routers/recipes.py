@@ -95,3 +95,28 @@ async def create_recipe(request: Request, user = Depends(auth_dependency), token
         logger.error(f"❌ Error saving the recipe: {str(e)}")
         logger.error(f"Error type: {type(e)}")
         raise HTTPException(status_code=500, detail=f"Failed to create recipe in database: {str(e)}")
+    
+@router.delete("/delete-recipe")
+async def delete_recipe(request: Request, user = Depends(auth_dependency), token = Depends(extract_token)):
+    logger.info("=== POST /create-recipe endpoint called ===")
+    
+    body = await request.json()    
+    user_id = user.get("sub")
+    if not user_id:
+        logger.error("❌ No user_id found in token")
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid user token"
+        )
+        
+    try: 
+        client = create_client(supabase_key=anon_key, supabase_url=url, options=ClientOptions(headers={"Authorization": f"Bearer {token}"}))
+        logger.info("✅ Supabase client created")
+        response = client.table("recipes").delete().eq("id", body["id"]).execute()
+        logger.info(f"✅ Recipe deleted successfully")
+        return {"status": "success"}
+    
+    except Exception as e:
+        logger.error(f"❌ Error deleting the recipe: {str(e)}")
+        logger.error(f"Error type: {type(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to delete recipe in database: {str(e)}")

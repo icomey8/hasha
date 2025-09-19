@@ -1,12 +1,14 @@
 # hasha
 Learning some new tools/technologies within the context of a simple CRUD app.
 
+![Screenshot](https://github.com/icomey8/hasha/blob/main/hasha.png)
+
 ## AWS
 
 #### CDK
-Had a lot of fun here - I got to see firsthand why IaC is so encouraged. Managed my Cognito and Lambda configurations here.
+Managed my Cognito and Lambda configurations as separate stacks. 
 
-#### Cognito
+#### Cognito & Lambda
 I learned a lot more about a standard authentication flow and JWTs.  Setting up a post-sign up lambda trigger and getting it to work with Supabase was an interesting challenge.
 
 ## Docker
@@ -16,4 +18,4 @@ I think I finally gained a decent understanding of Docker's benefits.  Wrapped m
 I heard a lot about FastAPI and wanted to give it a shot, and ended up being a great choice.  Managing routes and dependencies was straightforward. Also used Loguru to write logs for the backend to a single file, and Pytest for unit tests for endpoints and interactions with my database.
 
 ## Github Actions
-Made a basic workflow to automatically deploy the backend to Render. Lifesaver.
+Made a basic workflow to automatically deploy the backend to Render.

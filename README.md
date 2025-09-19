@@ -3,6 +3,8 @@ Learning some new tools/technologies within the context of a simple CRUD app.
 
 ![Screenshot](https://github.com/icomey8/hasha/blob/main/hasha.png)
 
+Play around with it here: https://hasha-theta.vercel.app/
+
 ## AWS
 
 #### CDK
